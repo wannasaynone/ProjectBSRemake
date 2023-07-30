@@ -1,0 +1,16 @@
+{
+    "name": "ProjectBS",
+    "rootNamespace": "",
+    "references": [
+        "GUID:af1f68da6c2f6fb44981fe6383f87169"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
