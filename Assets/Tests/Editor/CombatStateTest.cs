@@ -35,6 +35,7 @@ namespace ProjectBS.Test
             Assert.IsTrue(UnityEngine.Mathf.Approximately(player_actor1.actionRate, 1f));
             Assert.IsTrue(UnityEngine.Mathf.Approximately(player_actor2.actionRate, 0.5f));
             Assert.IsNotNull(startTurnActor);
+            Assert.AreEqual(player_actor1, startTurnActor);
         }
     }
 }

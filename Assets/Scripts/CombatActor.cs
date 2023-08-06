@@ -1,7 +1,64 @@
+using System.Collections.Generic;
+
 namespace ProjectBS.Combat
 {
     public class CombatActor : KahaGameCore.Combat.IValueContainer
     {
+        public class BuffInfo
+        {
+            public class InitialInfo
+            {
+                public CombatActor caster;
+                public CombatActor owner;
+                public int sourceID;
+                public int remainingTurnCount;
+                public CombatActor from;
+                public string addStatusType;
+                public string addValueFormula;
+                public List<string> immuneToCommand = new List<string>();
+                public List<string> immuneToTag = new List<string>();
+            }
+
+            public readonly CombatActor caster;
+            public readonly CombatActor owner;
+            public readonly int sourceID;
+            public readonly int remainingTurnCount;
+            public readonly CombatActor from;
+            public readonly string addStatusType;
+            public readonly string addValueFormula;
+            private readonly List<string> immuneToCommand;
+            private readonly List<string> immuneToTag;
+
+            public BuffInfo(InitialInfo info)
+            {
+                caster = info.caster;
+                owner = info.owner;
+                sourceID = info.sourceID;
+                remainingTurnCount = info.remainingTurnCount;
+                from = info.from;
+                addStatusType = info.addStatusType;
+                addValueFormula = info.addValueFormula;
+                immuneToCommand = new List<string>(info.immuneToCommand);
+                immuneToTag = new List<string>(info.immuneToTag);
+            }
+
+            public int GetValue(string tag)
+            {
+                if (tag != addStatusType)
+                    return 0;
+
+                float v = KahaGameCore.Combat.Calculator.Calculate(new KahaGameCore.Combat.Calculator.CalculateData
+                {
+                    caster = caster,
+                    formula = addValueFormula,
+                    target = owner,
+                    useBaseValue = false
+                });
+
+                return System.Convert.ToInt32(v);
+            }
+        }
+
         public class StatusInfo
         {
             public int MaxHealth;
@@ -14,38 +71,33 @@ namespace ProjectBS.Combat
 
         public string name;
 
-        public int MaxHealth { get; private set; }
         public int OriginMaxHealth { get; private set; }
         public int Health { get; private set; }
-        public int Attack { get; private set; }
         public int OrginAttack { get; private set; }
-        public int Defense { get; private set; }
         public int OrginDefense { get; private set; }
-        public int Speed { get; private set; }
         public int OrginSpeed { get; private set; }
-        public int Critical { get; private set; }
         public int OriginCritical { get; private set; }
-        public int CriticalDefense { get; private set; }
         public int OriginCriticalDefense { get; private set; }
 
         public float actionRate;
 
-        // buff 存公式 改GetTotal
+        private readonly List<BuffInfo> buffs = new List<BuffInfo>();
 
         public CombatActor(StatusInfo valueInfo)
         {
-            MaxHealth = OriginMaxHealth = valueInfo.MaxHealth;
-            Health = MaxHealth;
-            Attack = OrginAttack = valueInfo.Attack;
-            Defense = OrginDefense = valueInfo.Defense;
-            Speed = OrginSpeed = valueInfo.Speed;
-            Critical = OriginCritical = valueInfo.Critical;
-            CriticalDefense = OriginCriticalDefense = valueInfo.CriticalDefense;
+            OriginMaxHealth = valueInfo.MaxHealth;
+            Health = OriginMaxHealth;
+            OrginAttack = valueInfo.Attack;
+            OrginDefense = valueInfo.Defense;
+            OrginSpeed = valueInfo.Speed;
+            OriginCritical = valueInfo.Critical;
+            OriginCriticalDefense = valueInfo.CriticalDefense;
         }
 
         public int GetTotal(string tag, bool baseOnly)
         {
-            switch(tag.Trim().ToLower())
+            tag = tag.Trim().ToLower();
+            switch (tag)
             {
                 case "maxhp":
                 case "maxhealth":
@@ -53,7 +105,7 @@ namespace ProjectBS.Combat
                         if (baseOnly)
                             return OriginMaxHealth;
                         else
-                            return MaxHealth;
+                            return OriginMaxHealth + GetBuffTotal(tag);
                     }
                 case "hp":
                 case "health":
@@ -65,21 +117,21 @@ namespace ProjectBS.Combat
                         if (baseOnly)
                             return OrginAttack;
                         else
-                            return Attack;
+                            return OrginAttack + GetBuffTotal(tag);
                     }
                 case "defense":
                     {
                         if (baseOnly)
                             return OrginDefense;
                         else
-                            return Defense;
+                            return OrginDefense + GetBuffTotal(tag);
                     }
                 case "speed":
                     {
                         if (baseOnly)
                             return OrginSpeed;
                         else
-                            return Speed;
+                            return OrginSpeed + GetBuffTotal(tag);
                     }
                 case "cri":
                 case "critical":
@@ -87,7 +139,7 @@ namespace ProjectBS.Combat
                         if (baseOnly)
                             return OriginCritical;
                         else
-                            return Critical;
+                            return OriginCritical + GetBuffTotal(tag);
                     }
                 case "crifdef":
                 case "cridefense":
@@ -96,24 +148,22 @@ namespace ProjectBS.Combat
                         if (baseOnly)
                             return OriginCriticalDefense;
                         else
-                            return CriticalDefense;
+                            return OriginCriticalDefense + GetBuffTotal(tag);
                     }
                 default:
                     return 0;
             }
         }
 
-        public void Set(string tag, int newValue)
+        private int GetBuffTotal(string valueTag)
         {
-            switch (tag.Trim().ToLower())
+            int add = 0;
+            for (int i = 0; i < buffs.Count; i++)
             {
-                case "hp": case "health": Health = newValue; break;
-                case "attack": Attack = newValue; break;
-                case "defense": Defense = newValue; break;
-                case "speed": Speed = newValue; break;
-                case "cri": case "critical": Critical = newValue; break;
-                case "crifdef": case "cridefense": case "criticaldefense":  CriticalDefense = newValue; break;
+                add += buffs[i].GetValue(valueTag);
             }
+
+            return add;
         }
     }
 }
