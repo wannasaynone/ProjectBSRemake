@@ -12,9 +12,17 @@ namespace ProjectBS.Combat
         {
             actors.Sort((x, y) => y.GetTotal("Speed", false).CompareTo(x.GetTotal("Speed", false)));
             actorToActionDelta = new Dictionary<CombatActor, float>();
+            float baseSpeed = (float)actors[0].GetTotal("Speed", false);
             for (int i = 0; i < actors.Count; i++)
             {
-                actorToActionDelta.Add(actors[i], (float)actors[i].GetTotal("Speed", false) / (float)actors[0].GetTotal("Speed", false));
+                if (i == 0)
+                {
+                    actorToActionDelta.Add(actors[i], 1f);
+                }
+                else
+                {
+                    actorToActionDelta.Add(actors[i], (float)actors[i].GetTotal("Speed", false) / baseSpeed);
+                }
             }
         }
 

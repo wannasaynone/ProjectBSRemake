@@ -67,6 +67,12 @@ namespace ProjectBS.Combat
             public int Speed;
             public int Critical;
             public int CriticalDefense;
+            public List<int> Skills;
+        }
+
+        public class SkillInfo
+        {
+            public int sourceID;
         }
 
         public string name;
@@ -81,6 +87,8 @@ namespace ProjectBS.Combat
 
         public float actionRate;
 
+
+        private readonly List<SkillInfo> skills;
         private readonly List<BuffInfo> buffs = new List<BuffInfo>();
 
         public CombatActor(StatusInfo valueInfo)
@@ -92,6 +100,18 @@ namespace ProjectBS.Combat
             OrginSpeed = valueInfo.Speed;
             OriginCritical = valueInfo.Critical;
             OriginCriticalDefense = valueInfo.CriticalDefense;
+
+            skills = new List<SkillInfo>();
+            if (valueInfo.Skills != null)
+            {
+                for (int i = 0; i < valueInfo.Skills.Count; i++)
+                {
+                    skills.Add(new SkillInfo
+                    {
+                        sourceID = valueInfo.Skills[i]
+                    });
+                }
+            }
         }
 
         public int GetTotal(string tag, bool baseOnly)
