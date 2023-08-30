@@ -35,7 +35,7 @@ namespace ProjectBS.Combat
         {
             foreach(KeyValuePair<CombatActor, float> kvp in actorToActionDelta)
             {
-                kvp.Key.actionRate += kvp.Value * delta * 2f; // 2 for increase add speed
+                kvp.Key.actionRate += kvp.Value * delta * 4f; // 4 for 0.25f
                 UnityEngine.Debug.Log(kvp.Key.name + " delta=" + kvp.Value + ", actionRate=" + kvp.Key.actionRate);
             }
 
