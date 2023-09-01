@@ -4,7 +4,10 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "ProjectBS"
+        "ProjectBS",
+        "KahaGameCore.Combat",
+        "KahaGameCore.Combat.Processor",
+        "KahaGameCore.Combat.Processor.EffectProcessor"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using KahaGameCore.Combat.Processor.EffectProcessor;
+using System;
 
 namespace ProjectBS.Combat
 {
@@ -55,11 +57,11 @@ namespace ProjectBS.Combat
                     useBaseValue = false
                 });
 
-                return System.Convert.ToInt32(v);
+                return Convert.ToInt32(v);
             }
         }
 
-        public class StatusInfo
+        public class InitialStatusInfo
         {
             public int MaxHealth;
             public int Attack;
@@ -72,7 +74,35 @@ namespace ProjectBS.Combat
 
         public class SkillInfo
         {
-            public int sourceID;
+            public readonly int sourceID;
+
+            private readonly EffectProcessor effectProcessor;
+
+            public SkillInfo(int sourceID, EffectCommandDeserializer effectCommandDeserializer)
+            {
+                this.sourceID = sourceID;
+
+                Dictionary<string, List<EffectProcessor.EffectData>> timingToCommands = effectCommandDeserializer.Deserialize(Main.GameStaticDataManager.GetGameData<Data.SkillData>(sourceID).Commands);
+                effectProcessor = new EffectProcessor();
+                effectProcessor.SetUp(timingToCommands);
+            }
+
+            public void Execute(CombatActor caster, CombatActor target, string timing, Action onEnded)
+            {
+                if (!effectProcessor.HasTiming(timing))
+                {
+                    onEnded?.Invoke();
+                    return;
+                }
+
+                effectProcessor.Start(new KahaGameCore.Combat.ProcessData
+                {
+                    caster = caster,
+                    target = target,
+                    timing = timing,
+                    skipIfCount = 0
+                });
+            }
         }
 
         public string name;
@@ -91,7 +121,7 @@ namespace ProjectBS.Combat
         private readonly List<SkillInfo> skills;
         private readonly List<BuffInfo> buffs = new List<BuffInfo>();
 
-        public CombatActor(StatusInfo valueInfo)
+        public CombatActor(InitialStatusInfo valueInfo, EffectCommandDeserializer effectCommandDeserializer)
         {
             OriginMaxHealth = valueInfo.MaxHealth;
             Health = OriginMaxHealth;
@@ -106,10 +136,7 @@ namespace ProjectBS.Combat
             {
                 for (int i = 0; i < valueInfo.Skills.Count; i++)
                 {
-                    skills.Add(new SkillInfo
-                    {
-                        sourceID = valueInfo.Skills[i]
-                    });
+                    skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
                 }
             }
         }
@@ -171,6 +198,7 @@ namespace ProjectBS.Combat
                             return OriginCriticalDefense + GetBuffTotal(tag);
                     }
                 default:
+                    UnityEngine.Debug.LogError("invaild stats tag=" + tag);
                     return 0;
             }
         }
@@ -184,6 +212,73 @@ namespace ProjectBS.Combat
             }
 
             return add;
+        }
+
+        public void Add(string tag, int value)
+        {
+            tag = tag.Trim().ToLower();
+            switch (tag)
+            {
+                case "maxhp":
+                case "maxhealth":
+                    {
+                        OriginMaxHealth += value;
+
+                        if (OriginMaxHealth < 1)
+                        {
+                            OriginMaxHealth = 1;
+                        }
+
+                        break;
+                    }
+                case "hp":
+                case "health":
+                    {
+                        Health += value;
+                        int max = GetTotal("maxhp", false);
+                        if (Health > max)
+                        {
+                            Health = max;
+                        }
+                        break;
+                    }
+                case "attack":
+                    {
+                        OrginAttack += value;
+                        if (OrginAttack < 0) OrginAttack = 0;
+                        break;
+                    }
+                case "defense":
+                    {
+                        OrginDefense += value;
+                        if (OrginDefense < 0) OrginDefense = 0;
+                        break;
+                    }
+                case "speed":
+                    {
+                        OrginSpeed += value;
+                        if (OrginSpeed < 0) OrginSpeed = 0;
+                        break;
+                    }
+                case "cri":
+                case "critical":
+                    {
+                        OriginCritical += value;
+                        if (OriginCritical < 0) OriginCritical = 0;
+                        break;
+                    }
+                case "crifdef":
+                case "cridefense":
+                case "criticaldefense":
+                    {
+                        OriginCriticalDefense += value;
+                        if (OriginCriticalDefense < 0) OriginCriticalDefense = 0;
+                        break;
+                    }
+                default:
+                    UnityEngine.Debug.LogError("invaild stats tag=" + tag);
+                    break;
+            }
         }
     }
 }

@@ -58,5 +58,10 @@ namespace KahaGameCore.Combat
                 m_tempStats.Remove(valueObject);
             }
         }
+
+        public void Add(string tag, int value)
+        {
+            Add(new ValueObject(tag, value));
+        }
     }
 }
