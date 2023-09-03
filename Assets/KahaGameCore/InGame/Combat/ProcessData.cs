@@ -4,7 +4,7 @@ namespace KahaGameCore.Combat
     {
         public string timing = "";
         public IValueContainer caster = null;
-        public IValueContainer target = null;
+        public System.Collections.Generic.List<IValueContainer> target = null;
         public int skipIfCount = 0;
     }
 }

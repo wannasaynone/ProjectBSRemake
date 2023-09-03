@@ -19,11 +19,12 @@ namespace ProjectBS.Test
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
                 processData.caster.Add(vars[0], int.Parse(vars[1]));
+                onCompleted?.Invoke();
             }
         }
 
         [Test]
-        public void excute_skill()
+        public void execute_skill()
         {
             TestCommandFactory testCommandFactory = new TestCommandFactory();
 
@@ -32,14 +33,18 @@ namespace ProjectBS.Test
             
             EffectCommandDeserializer effectCommandDeserializer = new EffectCommandDeserializer(effectCommandFactoryContainer);
 
-            Combat.CombatActor.InitialStatusInfo statusInfo = new Combat.CombatActor.InitialStatusInfo
+            Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
             {
                 Attack = 1,
-                Skills = new System.Collections.Generic.List<int> { 0 }
+                SkillCommands = new System.Collections.Generic.List<string> { "OnActived { Test(Attack, 1); Test(Attack, 5); }" }
             };
 
+            int testNumber = 0;
             Combat.CombatActor combatActor = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
-            combatActor.
+            combatActor.UseSkill(0, delegate { testNumber = 1; });
+
+            Assert.AreEqual(1, testNumber);
+            Assert.AreEqual(combatActor.GetTotal("Attack", false), 7);
         }
     }
 }

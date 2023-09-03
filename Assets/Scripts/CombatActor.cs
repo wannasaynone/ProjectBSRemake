@@ -59,9 +59,14 @@ namespace ProjectBS.Combat
 
                 return Convert.ToInt32(v);
             }
+
+            public void Execute(string timing)
+            {
+
+            }
         }
 
-        public class InitialStatusInfo
+        public class InitialInfo
         {
             public int MaxHealth;
             public int Attack;
@@ -69,25 +74,22 @@ namespace ProjectBS.Combat
             public int Speed;
             public int Critical;
             public int CriticalDefense;
-            public List<int> Skills;
+            public List<string> SkillCommands;
         }
 
         public class SkillInfo
         {
-            public readonly int sourceID;
-
             private readonly EffectProcessor effectProcessor;
+            private Action onEnded;
 
-            public SkillInfo(int sourceID, EffectCommandDeserializer effectCommandDeserializer)
+            public SkillInfo(string  command, EffectCommandDeserializer effectCommandDeserializer)
             {
-                this.sourceID = sourceID;
-
-                Dictionary<string, List<EffectProcessor.EffectData>> timingToCommands = effectCommandDeserializer.Deserialize(Main.GameStaticDataManager.GetGameData<Data.SkillData>(sourceID).Commands);
+                Dictionary<string, List<EffectProcessor.EffectData>> timingToCommands = effectCommandDeserializer.Deserialize(command);
                 effectProcessor = new EffectProcessor();
                 effectProcessor.SetUp(timingToCommands);
             }
 
-            public void Execute(CombatActor caster, CombatActor target, string timing, Action onEnded)
+            public void Execute(CombatActor caster, string timing, Action onEnded)
             {
                 if (!effectProcessor.HasTiming(timing))
                 {
@@ -95,13 +97,20 @@ namespace ProjectBS.Combat
                     return;
                 }
 
+                this.onEnded = onEnded;
+                effectProcessor.OnProcessEnded += EffectProcessor_OnProcessEnded;
                 effectProcessor.Start(new KahaGameCore.Combat.ProcessData
                 {
                     caster = caster,
-                    target = target,
                     timing = timing,
                     skipIfCount = 0
                 });
+            }
+
+            private void EffectProcessor_OnProcessEnded()
+            {
+                effectProcessor.OnProcessEnded -= EffectProcessor_OnProcessEnded;
+                onEnded?.Invoke();
             }
         }
 
@@ -121,7 +130,7 @@ namespace ProjectBS.Combat
         private readonly List<SkillInfo> skills;
         private readonly List<BuffInfo> buffs = new List<BuffInfo>();
 
-        public CombatActor(InitialStatusInfo valueInfo, EffectCommandDeserializer effectCommandDeserializer)
+        public CombatActor(InitialInfo valueInfo, EffectCommandDeserializer effectCommandDeserializer)
         {
             OriginMaxHealth = valueInfo.MaxHealth;
             Health = OriginMaxHealth;
@@ -132,11 +141,11 @@ namespace ProjectBS.Combat
             OriginCriticalDefense = valueInfo.CriticalDefense;
 
             skills = new List<SkillInfo>();
-            if (valueInfo.Skills != null)
+            if (valueInfo.SkillCommands != null)
             {
-                for (int i = 0; i < valueInfo.Skills.Count; i++)
+                for (int i = 0; i < valueInfo.SkillCommands.Count; i++)
                 {
-                    skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
+                    skills.Add(new SkillInfo(valueInfo.SkillCommands[i], effectCommandDeserializer));
                 }
             }
         }
@@ -279,6 +288,18 @@ namespace ProjectBS.Combat
                     UnityEngine.Debug.LogError("invaild stats tag=" + tag);
                     break;
             }
+        }
+
+        public void UseSkill(int index, Action onUsed)
+        {
+            if (index < 0 || index >= skills.Count)
+            {
+                UnityEngine.Debug.LogError("using skill invaild index=" + index);
+                onUsed?.Invoke();
+                return;
+            }
+
+            skills[index].Execute(this, "OnActived", onUsed);
         }
     }
 }
