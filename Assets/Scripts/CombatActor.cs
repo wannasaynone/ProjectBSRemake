@@ -74,17 +74,19 @@ namespace ProjectBS.Combat
             public int Speed;
             public int Critical;
             public int CriticalDefense;
-            public List<string> SkillCommands;
+            public List<Data.SkillData> Skills;
         }
 
         public class SkillInfo
         {
+            public readonly Data.SkillData referenceSkillData;
             private readonly EffectProcessor effectProcessor;
             private Action onEnded;
 
-            public SkillInfo(string  command, EffectCommandDeserializer effectCommandDeserializer)
+            public SkillInfo(Data.SkillData skillData, EffectCommandDeserializer effectCommandDeserializer)
             {
-                Dictionary<string, List<EffectProcessor.EffectData>> timingToCommands = effectCommandDeserializer.Deserialize(command);
+                referenceSkillData = skillData;
+                Dictionary<string, List<EffectProcessor.EffectData>> timingToCommands = effectCommandDeserializer.Deserialize(skillData.Commands);
                 effectProcessor = new EffectProcessor();
                 effectProcessor.SetUp(timingToCommands);
             }
@@ -141,11 +143,11 @@ namespace ProjectBS.Combat
             OriginCriticalDefense = valueInfo.CriticalDefense;
 
             skills = new List<SkillInfo>();
-            if (valueInfo.SkillCommands != null)
+            if (valueInfo.Skills != null)
             {
-                for (int i = 0; i < valueInfo.SkillCommands.Count; i++)
+                for (int i = 0; i < valueInfo.Skills.Count; i++)
                 {
-                    skills.Add(new SkillInfo(valueInfo.SkillCommands[i], effectCommandDeserializer));
+                    skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
                 }
             }
         }

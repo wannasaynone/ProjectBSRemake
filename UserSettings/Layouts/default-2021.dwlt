@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349.3334
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Test Runner
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 157
+  controlID: 33
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 237
+  controlID: 34
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 238
+  controlID: 35
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,8 +242,8 @@ MonoBehaviour:
     y: 0
     width: 844.6666
     height: 892
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -268,14 +268,14 @@ MonoBehaviour:
     y: 892
     width: 2036.6666
     height: 407.33337
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 18}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -295,14 +295,14 @@ MonoBehaviour:
     y: 0
     width: 523.3334
     height: 1299.3334
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 19}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -332,7 +332,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 351
+    ID: 230
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -416,7 +416,7 @@ MonoBehaviour:
       name: ProjectBSRemake
       fullName: ProjectBSRemake
       resultStatus: 1
-      duration: 0.1584254
+      duration: 0.1764724
       messages: 
       output: 
       stacktrace: 
@@ -432,7 +432,7 @@ MonoBehaviour:
       name: KahaGameCore.Tests.dll
       fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/KahaGameCore.Tests.dll
       resultStatus: 1
-      duration: 0.1150894
+      duration: 0.1352552
       messages: 
       output: 
       stacktrace: 
@@ -448,7 +448,7 @@ MonoBehaviour:
       name: KahaGameCore
       fullName: KahaGameCore
       resultStatus: 1
-      duration: 0.1126395
+      duration: 0.1344454
       messages: 
       output: 
       stacktrace: 
@@ -464,7 +464,7 @@ MonoBehaviour:
       name: Tests
       fullName: KahaGameCore.Tests
       resultStatus: 1
-      duration: 0.1083976
+      duration: 0.1337894
       messages: 
       output: 
       stacktrace: 
@@ -480,7 +480,7 @@ MonoBehaviour:
       name: CalculatorTest
       fullName: KahaGameCore.Tests.CalculatorTest
       resultStatus: 1
-      duration: 0.0056971
+      duration: 0.0283805
       messages: 
       output: 
       stacktrace: 
@@ -496,7 +496,7 @@ MonoBehaviour:
       name: Calculate
       fullName: KahaGameCore.Tests.CalculatorTest.Calculate
       resultStatus: 1
-      duration: 0.0002144
+      duration: 0.0118286
       messages: 
       output: 
       stacktrace: 
@@ -513,7 +513,7 @@ MonoBehaviour:
       name: Calculate_if_typo
       fullName: KahaGameCore.Tests.CalculatorTest.Calculate_if_typo
       resultStatus: 1
-      duration: 0.0002444
+      duration: 0.000309
       messages: 
       output: 
       stacktrace: 
@@ -530,7 +530,7 @@ MonoBehaviour:
       name: Spciaial_command_random_when_typo
       fullName: KahaGameCore.Tests.CalculatorTest.Spciaial_command_random_when_typo
       resultStatus: 1
-      duration: 0.0005769
+      duration: 0.0024328
       messages: 
       output: '[CombatUtility][GetValueByCommand] Invaild command=Rando
 
@@ -549,7 +549,7 @@ MonoBehaviour:
       name: Special_command_random
       fullName: KahaGameCore.Tests.CalculatorTest.Special_command_random
       resultStatus: 1
-      duration: 0.0001139
+      duration: 0.0011246
       messages: 
       output: 
       stacktrace: 
@@ -566,7 +566,7 @@ MonoBehaviour:
       name: Special_command_remember_read
       fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_read
       resultStatus: 1
-      duration: 0.0001013
+      duration: 0.0010779
       messages: 
       output: 
       stacktrace: 
@@ -583,7 +583,7 @@ MonoBehaviour:
       name: Special_command_remember_twice_then_read
       fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_twice_then_read
       resultStatus: 1
-      duration: 0.0000933
+      duration: 0.0002161
       messages: 
       output: 
       stacktrace: 
@@ -600,7 +600,7 @@ MonoBehaviour:
       name: CombatUnitTest
       fullName: KahaGameCore.Tests.CombatUnitTest
       resultStatus: 1
-      duration: 0.0068419
+      duration: 0.0080454
       messages: 
       output: 
       stacktrace: 
@@ -616,7 +616,7 @@ MonoBehaviour:
       name: Add_stats_and_get_total_value
       fullName: KahaGameCore.Tests.CombatUnitTest.Add_stats_and_get_total_value
       resultStatus: 1
-      duration: 0.000134
+      duration: 0.0033665
       messages: 
       output: 
       stacktrace: 
@@ -633,7 +633,7 @@ MonoBehaviour:
       name: Remove_stats
       fullName: KahaGameCore.Tests.CombatUnitTest.Remove_stats
       resultStatus: 1
-      duration: 0.000097
+      duration: 0.000358
       messages: 
       output: 
       stacktrace: 
@@ -650,7 +650,7 @@ MonoBehaviour:
       name: EffectCommandDeserializeTest
       fullName: KahaGameCore.Tests.EffectCommandDeserializeTest
       resultStatus: 1
-      duration: 0.0088252
+      duration: 0.0078262
       messages: 
       output: 
       stacktrace: 
@@ -666,7 +666,7 @@ MonoBehaviour:
       name: Deserialize
       fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize
       resultStatus: 1
-      duration: 0.0002654
+      duration: 0.0019638
       messages: 
       output: 
       stacktrace: 
@@ -683,7 +683,7 @@ MonoBehaviour:
       name: Deserialize_if_miss_block
       fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_block
       resultStatus: 1
-      duration: 0.001478
+      duration: 0.0014336
       messages: 
       output: '[EffectProcesser][GetEffectCommand] Invaild command=Test2{DebugLog
 
@@ -710,7 +710,7 @@ MonoBehaviour:
       name: Deserialize_if_miss_semicolon
       fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_semicolon
       resultStatus: 1
-      duration: 0.0001646
+      duration: 0.0003088
       messages: 
       output: 
       stacktrace: 
@@ -727,7 +727,7 @@ MonoBehaviour:
       name: EffectProcessorTest
       fullName: KahaGameCore.Tests.EffectProcessorTest
       resultStatus: 1
-      duration: 0.0074209
+      duration: 0.0075896
       messages: 
       output: 
       stacktrace: 
@@ -743,7 +743,7 @@ MonoBehaviour:
       name: Process
       fullName: KahaGameCore.Tests.EffectProcessorTest.Process
       resultStatus: 1
-      duration: 0.0006655
+      duration: 0.0019172
       messages: 
       output: 'TestMsg
 
@@ -762,7 +762,7 @@ MonoBehaviour:
       name: Process_with_special_command_if
       fullName: KahaGameCore.Tests.EffectProcessorTest.Process_with_special_command_if
       resultStatus: 1
-      duration: 0.0001027
+      duration: 0.0006996
       messages: 
       output: 
       stacktrace: 
@@ -779,7 +779,7 @@ MonoBehaviour:
       name: Quit
       fullName: KahaGameCore.Tests.EffectProcessorTest.Quit
       resultStatus: 1
-      duration: 0.0005434
+      duration: 0.0007255
       messages: 
       output: 'TestMsg
 
@@ -798,7 +798,7 @@ MonoBehaviour:
       name: GameDataDeserializerImplementTest
       fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest
       resultStatus: 1
-      duration: 0.0058096
+      duration: 0.01268
       messages: 
       output: 
       stacktrace: 
@@ -814,7 +814,7 @@ MonoBehaviour:
       name: Deserialize
       fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest.Deserialize
       resultStatus: 1
-      duration: 0.0002806
+      duration: 0.0087928
       messages: 
       output: 
       stacktrace: 
@@ -831,7 +831,7 @@ MonoBehaviour:
       name: GameDataManagerImplementTest
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest
       resultStatus: 1
-      duration: 0.0100451
+      duration: 0.0144395
       messages: 
       output: 
       stacktrace: 
@@ -847,7 +847,7 @@ MonoBehaviour:
       name: Get_data
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Get_data
       resultStatus: 1
-      duration: 0.0002797
+      duration: 0.0011212
       messages: 
       output: 
       stacktrace: 
@@ -864,7 +864,7 @@ MonoBehaviour:
       name: Load_data
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data
       resultStatus: 1
-      duration: 0.0007373
+      duration: 0.0006887
       messages: 
       output: 'T is loaded, use Unload first or set isForceUpdate=true
 
@@ -883,7 +883,7 @@ MonoBehaviour:
       name: Load_data_with_async
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_async
       resultStatus: 1
-      duration: 0.0001194
+      duration: 0.0063285
       messages: 
       output: 
       stacktrace: 
@@ -900,7 +900,7 @@ MonoBehaviour:
       name: Load_data_with_force_update
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_force_update
       resultStatus: 1
-      duration: 0.0001373
+      duration: 0.000576
       messages: 
       output: 
       stacktrace: 
@@ -917,7 +917,7 @@ MonoBehaviour:
       name: Load_data_with_handler
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_handler
       resultStatus: 1
-      duration: 0.0002829
+      duration: 0.0004299
       messages: 
       output: 
       stacktrace: 
@@ -934,7 +934,7 @@ MonoBehaviour:
       name: Unload_data
       fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Unload_data
       resultStatus: 1
-      duration: 0.0000758
+      duration: 0.0001892
       messages: 
       output: 
       stacktrace: 
@@ -951,7 +951,7 @@ MonoBehaviour:
       name: GameDataSerializerImplementTest
       fullName: KahaGameCore.Tests.GameDataSerializerImplementTest
       resultStatus: 1
-      duration: 0.0062425
+      duration: 0.0067672
       messages: 
       output: 
       stacktrace: 
@@ -967,7 +967,7 @@ MonoBehaviour:
       name: Serialize
       fullName: KahaGameCore.Tests.GameDataSerializerImplementTest.Serialize
       resultStatus: 1
-      duration: 0.0001796
+      duration: 0.0027264
       messages: 
       output: 
       stacktrace: 
@@ -984,7 +984,7 @@ MonoBehaviour:
       name: InputEventHandlerTest
       fullName: KahaGameCore.Tests.InputEventHandlerTest
       resultStatus: 1
-      duration: 0.0073636
+      duration: 0.0057336
       messages: 
       output: 
       stacktrace: 
@@ -1000,7 +1000,7 @@ MonoBehaviour:
       name: Double_tap
       fullName: KahaGameCore.Tests.InputEventHandlerTest.Double_tap
       resultStatus: 1
-      duration: 0.0001325
+      duration: 0.0003968
       messages: 
       output: 
       stacktrace: 
@@ -1017,7 +1017,7 @@ MonoBehaviour:
       name: Drag
       fullName: KahaGameCore.Tests.InputEventHandlerTest.Drag
       resultStatus: 1
-      duration: 0.0002937
+      duration: 0.0004009
       messages: 
       output: 
       stacktrace: 
@@ -1034,7 +1034,7 @@ MonoBehaviour:
       name: Pressing
       fullName: KahaGameCore.Tests.InputEventHandlerTest.Pressing
       resultStatus: 1
-      duration: 0.0000914
+      duration: 0.0002601
       messages: 
       output: 
       stacktrace: 
@@ -1051,7 +1051,7 @@ MonoBehaviour:
       name: Singal_tap
       fullName: KahaGameCore.Tests.InputEventHandlerTest.Singal_tap
       resultStatus: 1
-      duration: 0.0000785
+      duration: 0.0002205
       messages: 
       output: 
       stacktrace: 
@@ -1068,7 +1068,7 @@ MonoBehaviour:
       name: Swipe
       fullName: KahaGameCore.Tests.InputEventHandlerTest.Swipe
       resultStatus: 1
-      duration: 0.0001127
+      duration: 0.0003052
       messages: 
       output: 
       stacktrace: 
@@ -1085,7 +1085,7 @@ MonoBehaviour:
       name: ProcesserTest
       fullName: KahaGameCore.Tests.ProcesserTest
       resultStatus: 1
-      duration: 0.0053537
+      duration: 0.0046036
       messages: 
       output: 
       stacktrace: 
@@ -1101,7 +1101,7 @@ MonoBehaviour:
       name: Process
       fullName: KahaGameCore.Tests.ProcesserTest.Process
       resultStatus: 1
-      duration: 0.000112
+      duration: 0.0007077
       messages: 
       output: 
       stacktrace: 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       name: SaveHandlerTest
       fullName: KahaGameCore.Tests.SaveHandlerTest
       resultStatus: 1
-      duration: 0.0318188
+      duration: 0.0273188
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -1139,7 +1139,7 @@ MonoBehaviour:
       name: Save_and_load
       fullName: KahaGameCore.Tests.SaveHandlerTest.Save_and_load
       resultStatus: 1
-      duration: 0.0256033
+      duration: 0.0232895
       messages: 
       output: 'Saved:C:/Users/user/AppData/LocalLow/DefaultCompany/ProjectBSRemake/Resources/Datas/
 
@@ -1161,7 +1161,7 @@ MonoBehaviour:
       name: ValueObjectTest
       fullName: KahaGameCore.Tests.ValueObjectTest
       resultStatus: 1
-      duration: 0.0072705
+      duration: 0.0051145
       messages: 
       output: 
       stacktrace: 
@@ -1177,7 +1177,7 @@ MonoBehaviour:
       name: Add
       fullName: KahaGameCore.Tests.ValueObjectTest.Add
       resultStatus: 1
-      duration: 0.0001306
+      duration: 0.0002728
       messages: 
       output: 
       stacktrace: 
@@ -1194,7 +1194,7 @@ MonoBehaviour:
       name: Add_with_min_max
       fullName: KahaGameCore.Tests.ValueObjectTest.Add_with_min_max
       resultStatus: 1
-      duration: 0.0000941
+      duration: 0.000169
       messages: 
       output: 
       stacktrace: 
@@ -1211,7 +1211,7 @@ MonoBehaviour:
       name: Create
       fullName: KahaGameCore.Tests.ValueObjectTest.Create
       resultStatus: 1
-      duration: 0.0000765
+      duration: 0.0001317
       messages: 
       output: 
       stacktrace: 
@@ -1228,7 +1228,7 @@ MonoBehaviour:
       name: Mutiply
       fullName: KahaGameCore.Tests.ValueObjectTest.Mutiply
       resultStatus: 1
-      duration: 0.0000723
+      duration: 0.0001645
       messages: 
       output: 
       stacktrace: 
@@ -1245,7 +1245,7 @@ MonoBehaviour:
       name: Mutiply_with_max_min
       fullName: KahaGameCore.Tests.ValueObjectTest.Mutiply_with_max_min
       resultStatus: 1
-      duration: 0.0000734
+      duration: 0.0001316
       messages: 
       output: 
       stacktrace: 
@@ -1262,7 +1262,7 @@ MonoBehaviour:
       name: ProjectBS.Tests.dll
       fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/ProjectBS.Tests.dll
       resultStatus: 1
-      duration: 0.0271632
+      duration: 0.0239413
       messages: 
       output: 
       stacktrace: 
@@ -1278,7 +1278,7 @@ MonoBehaviour:
       name: ProjectBS
       fullName: ProjectBS
       resultStatus: 1
-      duration: 0.0219228
+      duration: 0.020799
       messages: 
       output: 
       stacktrace: 
@@ -1294,7 +1294,7 @@ MonoBehaviour:
       name: Test
       fullName: ProjectBS.Test
       resultStatus: 1
-      duration: 0.0215194
+      duration: 0.0205854
       messages: 
       output: 
       stacktrace: 
@@ -1310,7 +1310,7 @@ MonoBehaviour:
       name: CombatStateTest
       fullName: ProjectBS.Test.CombatStateTest
       resultStatus: 1
-      duration: 0.0103856
+      duration: 0.0093225
       messages: 
       output: 
       stacktrace: 
@@ -1326,7 +1326,7 @@ MonoBehaviour:
       name: waiting_action_rate_state
       fullName: ProjectBS.Test.CombatStateTest.waiting_action_rate_state
       resultStatus: 1
-      duration: 0.0068641
+      duration: 0.0047017
       messages: 
       output: 'player_actor1 delta=1, actionRate=1
 
@@ -1358,7 +1358,7 @@ MonoBehaviour:
       name: SkillTest
       fullName: ProjectBS.Test.SkillTest
       resultStatus: 1
-      duration: 0.0078524
+      duration: 0.0076807
       messages: 
       output: 
       stacktrace: 
@@ -1374,7 +1374,7 @@ MonoBehaviour:
       name: execute_skill
       fullName: ProjectBS.Test.SkillTest.execute_skill
       resultStatus: 1
-      duration: 0.00139
+      duration: 0.0014822
       messages: 
       output: 
       stacktrace: 
@@ -1386,7 +1386,7 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1051
       parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
-    m_ResultText: ProjectBSRemake (0.158s)
+    m_ResultText: ProjectBSRemake (0.176s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
@@ -1477,9 +1477,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: dc6a0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cbdffff7cbdffffccbdffff8abfffff7cc1ffffd0cfffff64d3ffff0cd4ffff06d8ffff0edeffff40e2ffffb8e5ffffcae9ffff40edffffb8f3ffff7efaffff2c5600008c560000
+      m_ExpandedIDs: f0f3ffff28fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1996,22 +1996,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\user\Documents\work\ProjectBSRemake
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e26a0000
-    m_LastClickedID: 27362
-    m_ExpandedIDs: 00000000744a0000764a000000ca9a3b
+    m_SelectedIDs: 804c0000
+    m_LastClickedID: 19584
+    m_ExpandedIDs: 00000000684c0000804c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2039,7 +2039,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000744a000000ca9a3b
+    m_ExpandedIDs: 00000000684c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2070,18 +2070,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UI
-      m_OriginalName: UI
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 27362
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:

@@ -36,7 +36,7 @@ namespace ProjectBS.Test
             Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
             {
                 Attack = 1,
-                SkillCommands = new System.Collections.Generic.List<string> { "OnActived { Test(Attack, 1); Test(Attack, 5); }" }
+                Skills = new System.Collections.Generic.List<Data.SkillData> { new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnActived { Test(Attack, 1); Test(Attack, 5); }" }) }
             };
 
             int testNumber = 0;
