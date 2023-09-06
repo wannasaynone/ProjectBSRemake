@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using ProjectBS.Combat;
+using System;
 using UnityEngine;
 
-public class SelectSkillMenu : MonoBehaviour
+namespace ProjectBS.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SelectSkillMenu : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private GameObject root;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake()
+        {
+            Combat.UnitTurnStartState.OnTurnStarted += UnitTurnStartState_OnTurnStarted;
+        }
+
+        private void UnitTurnStartState_OnTurnStarted(CombatActor obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

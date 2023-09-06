@@ -4,7 +4,9 @@ namespace ProjectBS.Combat
 {
     public class UnitTurnStartState : CombatStateBase
     {
-        private CombatActor actor;
+        public static System.Action<CombatActor> OnTurnStarted;
+
+        private readonly CombatActor actor;
 
         public UnitTurnStartState(CombatActor actor)
         {
@@ -13,7 +15,7 @@ namespace ProjectBS.Combat
 
         public override void Enter()
         {
-            Debug.Log(actor.name + " turn start");
+            OnTurnStarted?.Invoke(actor);
         }
     }
 }
