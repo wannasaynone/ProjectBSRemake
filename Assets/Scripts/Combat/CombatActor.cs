@@ -303,5 +303,15 @@ namespace ProjectBS.Combat
 
             skills[index].Execute(this, "OnActived", onUsed);
         }
+
+        public Data.SkillData GetSkillSource(int index)
+        {
+            if (index < 0 || index >= skills.Count)
+            {
+                return null;
+            }
+
+            return skills[index].referenceSkillData;
+        }
     }
 }
