@@ -1,9 +1,8 @@
 [
-  {
-    "ID": 1,
-    "NameID": 1,
-    "DescriptionID": 2,
-    "Commands": "OnActived\n{\n      Select(Opponent, 1);\n      Damage(Caster.Attack);\n      PlayAnimation(Attack1);\n}",
-    "Tags": null
-  }
+    {
+        "Commands": "OnActived\n{\n      Select(Opponent, 1);\n      Damage(Caster.Attack);\n      PlayAnimation(Attack1);\n}",
+        "DescriptionID": 2,
+        "ID": 1,
+        "NameID": 1
+    }
 ]
