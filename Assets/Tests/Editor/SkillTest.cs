@@ -46,5 +46,34 @@ namespace ProjectBS.Test
             Assert.AreEqual(1, testNumber);
             Assert.AreEqual(combatActor.GetTotal("Attack", false), 7);
         }
+
+        [Test]
+        public void trigger()
+        {
+            TestCommandFactory testCommandFactory = new TestCommandFactory();
+
+            EffectCommandFactoryContainer effectCommandFactoryContainer = new EffectCommandFactoryContainer();
+            effectCommandFactoryContainer.RegisterFactory("Test", testCommandFactory);
+
+            EffectCommandDeserializer effectCommandDeserializer = new EffectCommandDeserializer(effectCommandFactoryContainer);
+
+            Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
+            {
+                Attack = 1,
+                Skills = new System.Collections.Generic.List<Data.SkillData> 
+                {
+                    new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }; OnActived { Test(Attack, 1);" }),
+                    new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }" }),
+                    new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }" })
+                }
+            };
+
+            int testNumber = 0;
+            Combat.CombatActor combatActor = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
+            combatActor.Trigger("OnTriggered", delegate { testNumber++; });
+
+            Assert.AreEqual(1, testNumber);
+            Assert.AreEqual(combatActor.GetTotal("Attack", false), 4);
+        }
     }
 }

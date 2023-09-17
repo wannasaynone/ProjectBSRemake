@@ -79,6 +79,26 @@ namespace ProjectBS.Combat
 
         public class SkillInfo
         {
+            public class ProcessableSkillInfo : KahaGameCore.Processor.IProcessable
+            {
+                public readonly Action<CombatActor, string, Action> execute;
+
+                private readonly CombatActor caster;
+                private readonly string timing;
+
+                public ProcessableSkillInfo(CombatActor caster, string timing, Action<CombatActor, string, Action> execute)
+                {
+                    this.execute = execute;
+                    this.caster = caster;
+                    this.timing = timing;
+                }
+
+                public void Process(Action onCompleted, Action onForceQuit)
+                {
+                    execute?.Invoke(caster, timing, onCompleted);
+                }
+            }
+
             public readonly Data.SkillData referenceSkillData;
             private readonly EffectProcessor effectProcessor;
             private Action onEnded;
@@ -113,6 +133,11 @@ namespace ProjectBS.Combat
             {
                 effectProcessor.OnProcessEnded -= EffectProcessor_OnProcessEnded;
                 onEnded?.Invoke();
+            }
+
+            public ProcessableSkillInfo GetProcessableSkillInfo(CombatActor caster, string timing)
+            {
+                return new ProcessableSkillInfo(caster, timing, Execute);
             }
         }
 
@@ -312,6 +337,18 @@ namespace ProjectBS.Combat
             }
 
             return skills[index].referenceSkillData;
+        }
+
+        public void Trigger(string timing, Action onEnded)
+        {
+            List<SkillInfo.ProcessableSkillInfo> processableSkillInfos = new List<SkillInfo.ProcessableSkillInfo>();
+            for (int i = 0; i < skills.Count; i++)
+            {
+                processableSkillInfos.Add(skills[i].GetProcessableSkillInfo(this, timing));
+            }
+
+            KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo> processor = new KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo>(processableSkillInfos.ToArray());
+            processor.Start(onEnded, delegate { UnityEngine.Debug.LogError("Trigger shouldn't have Quit"); });
         }
     }
 }
