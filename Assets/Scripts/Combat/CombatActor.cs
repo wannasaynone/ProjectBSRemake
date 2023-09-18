@@ -4,7 +4,7 @@ using System;
 
 namespace ProjectBS.Combat
 {
-    public class CombatActor : KahaGameCore.Combat.IValueContainer
+    public class CombatActor : KahaGameCore.Combat.IActor
     {
         public class BuffInfo
         {
@@ -62,7 +62,7 @@ namespace ProjectBS.Combat
 
             public void Execute(string timing)
             {
-
+                throw new System.NotImplementedException();
             }
         }
 
@@ -143,31 +143,226 @@ namespace ProjectBS.Combat
 
         public string name;
 
-        public int OriginMaxHealth { get; private set; }
-        public int Health { get; private set; }
-        public int OrginAttack { get; private set; }
-        public int OrginDefense { get; private set; }
-        public int OrginSpeed { get; private set; }
-        public int OriginCritical { get; private set; }
-        public int OriginCriticalDefense { get; private set; }
+        public class ActorStats : KahaGameCore.Combat.IValueContainer
+        {
+            private readonly List<BuffInfo> buffs = new List<BuffInfo>();
+
+            public int OriginMaxHealth { get; private set; }
+            public int Health { get; private set; }
+            public int OrginAttack { get; private set; }
+            public int OrginDefense { get; private set; }
+            public int OrginSpeed { get; private set; }
+            public int OriginCritical { get; private set; }
+            public int OriginCriticalDefense { get; private set; }
+
+            public ActorStats(InitialInfo valueInfo)
+            {
+                OriginMaxHealth = valueInfo.MaxHealth;
+                Health = OriginMaxHealth;
+                OrginAttack = valueInfo.Attack;
+                OrginDefense = valueInfo.Defense;
+                OrginSpeed = valueInfo.Speed;
+                OriginCritical = valueInfo.Critical;
+                OriginCriticalDefense = valueInfo.CriticalDefense;
+            }
+
+            public int GetTotal(string tag, bool baseOnly)
+            {
+                tag = tag.Trim().ToLower();
+                switch (tag)
+                {
+                    case "maxhp":
+                    case "maxhealth":
+                        {
+                            if (baseOnly)
+                                return OriginMaxHealth;
+                            else
+                                return OriginMaxHealth + GetBuffTotal(tag);
+                        }
+                    case "hp":
+                    case "health":
+                        {
+                            return Health;
+                        }
+                    case "attack":
+                        {
+                            if (baseOnly)
+                                return OrginAttack;
+                            else
+                                return OrginAttack + GetBuffTotal(tag);
+                        }
+                    case "defense":
+                        {
+                            if (baseOnly)
+                                return OrginDefense;
+                            else
+                                return OrginDefense + GetBuffTotal(tag);
+                        }
+                    case "speed":
+                        {
+                            if (baseOnly)
+                                return OrginSpeed;
+                            else
+                                return OrginSpeed + GetBuffTotal(tag);
+                        }
+                    case "cri":
+                    case "critical":
+                        {
+                            if (baseOnly)
+                                return OriginCritical;
+                            else
+                                return OriginCritical + GetBuffTotal(tag);
+                        }
+                    case "crifdef":
+                    case "cridefense":
+                    case "criticaldefense":
+                        {
+                            if (baseOnly)
+                                return OriginCriticalDefense;
+                            else
+                                return OriginCriticalDefense + GetBuffTotal(tag);
+                        }
+                    default:
+                        UnityEngine.Debug.LogError("invaild stats tag=" + tag);
+                        return 0;
+                }
+            }
+
+            public void Add(string tag, int value)
+            {
+                tag = tag.Trim().ToLower();
+                switch (tag)
+                {
+                    case "maxhp":
+                    case "maxhealth":
+                        {
+                            OriginMaxHealth += value;
+
+                            if (OriginMaxHealth < 1)
+                            {
+                                OriginMaxHealth = 1;
+                            }
+
+                            break;
+                        }
+                    case "hp":
+                    case "health":
+                        {
+                            Health += value;
+                            int max = GetTotal("maxhp", false);
+                            if (Health > max)
+                            {
+                                Health = max;
+                            }
+                            break;
+                        }
+                    case "attack":
+                        {
+                            OrginAttack += value;
+                            if (OrginAttack < 0) OrginAttack = 0;
+                            break;
+                        }
+                    case "defense":
+                        {
+                            OrginDefense += value;
+                            if (OrginDefense < 0) OrginDefense = 0;
+                            break;
+                        }
+                    case "speed":
+                        {
+                            OrginSpeed += value;
+                            if (OrginSpeed < 0) OrginSpeed = 0;
+                            break;
+                        }
+                    case "cri":
+                    case "critical":
+                        {
+                            OriginCritical += value;
+                            if (OriginCritical < 0) OriginCritical = 0;
+                            break;
+                        }
+                    case "crifdef":
+                    case "cridefense":
+                    case "criticaldefense":
+                        {
+                            OriginCriticalDefense += value;
+                            if (OriginCriticalDefense < 0) OriginCriticalDefense = 0;
+                            break;
+                        }
+                    default:
+                        UnityEngine.Debug.LogError("invaild stats tag=" + tag);
+                        break;
+                }
+            }
+
+            private int GetBuffTotal(string valueTag)
+            {
+                int add = 0;
+                for (int i = 0; i < buffs.Count; i++)
+                {
+                    add += buffs[i].GetValue(valueTag);
+                }
+
+                return add;
+            }
+        }
+
+        public class ActorSkillTrigger : KahaGameCore.Combat.ISkillTrigger
+        {
+            private readonly CombatActor combatActor;
+            private readonly List<SkillInfo> skills;
+
+            public ActorSkillTrigger(CombatActor combatActor, List<SkillInfo> skills)
+            {
+                this.combatActor = combatActor;
+                this.skills = new List<SkillInfo>(skills);
+            }
+
+            public void Trigger(string timing, Action onEnded)
+            {
+                List<SkillInfo.ProcessableSkillInfo> processableSkillInfos = new List<SkillInfo.ProcessableSkillInfo>();
+                for (int i = 0; i < skills.Count; i++)
+                {
+                    processableSkillInfos.Add(skills[i].GetProcessableSkillInfo(combatActor, timing));
+                }
+
+                KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo> processor = new KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo>(processableSkillInfos.ToArray());
+                processor.Start(onEnded, delegate { UnityEngine.Debug.LogError("Trigger shouldn't have Quit"); });
+            }
+
+            public void UseSkill(int index, Action onUsed)
+            {
+                if (index < 0 || index >= skills.Count)
+                {
+                    UnityEngine.Debug.LogError("using skill invaild index=" + index);
+                    onUsed?.Invoke();
+                    return;
+                }
+
+                skills[index].Execute(combatActor, "OnActived", onUsed);
+            }
+
+            public Data.SkillData GetSkillSource(int index)
+            {
+                if (index < 0 || index >= skills.Count)
+                {
+                    return null;
+                }
+
+                return skills[index].referenceSkillData;
+            }
+        }
 
         public float actionRate;
 
-
-        private readonly List<SkillInfo> skills;
-        private readonly List<BuffInfo> buffs = new List<BuffInfo>();
+        public KahaGameCore.Combat.IValueContainer Stats { get; private set; }
+        public KahaGameCore.Combat.ISkillTrigger SkillTrigger { get; private set; }
 
         public CombatActor(InitialInfo valueInfo, EffectCommandDeserializer effectCommandDeserializer)
         {
-            OriginMaxHealth = valueInfo.MaxHealth;
-            Health = OriginMaxHealth;
-            OrginAttack = valueInfo.Attack;
-            OrginDefense = valueInfo.Defense;
-            OrginSpeed = valueInfo.Speed;
-            OriginCritical = valueInfo.Critical;
-            OriginCriticalDefense = valueInfo.CriticalDefense;
+            Stats = new ActorStats(valueInfo);
 
-            skills = new List<SkillInfo>();
+            List<SkillInfo> skills = new List<SkillInfo>();
             if (valueInfo.Skills != null)
             {
                 for (int i = 0; i < valueInfo.Skills.Count; i++)
@@ -175,180 +370,18 @@ namespace ProjectBS.Combat
                     skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
                 }
             }
-        }
 
-        public int GetTotal(string tag, bool baseOnly)
-        {
-            tag = tag.Trim().ToLower();
-            switch (tag)
-            {
-                case "maxhp":
-                case "maxhealth":
-                    {
-                        if (baseOnly)
-                            return OriginMaxHealth;
-                        else
-                            return OriginMaxHealth + GetBuffTotal(tag);
-                    }
-                case "hp":
-                case "health":
-                    {
-                        return Health;
-                    }
-                case "attack":
-                    {
-                        if (baseOnly)
-                            return OrginAttack;
-                        else
-                            return OrginAttack + GetBuffTotal(tag);
-                    }
-                case "defense":
-                    {
-                        if (baseOnly)
-                            return OrginDefense;
-                        else
-                            return OrginDefense + GetBuffTotal(tag);
-                    }
-                case "speed":
-                    {
-                        if (baseOnly)
-                            return OrginSpeed;
-                        else
-                            return OrginSpeed + GetBuffTotal(tag);
-                    }
-                case "cri":
-                case "critical":
-                    {
-                        if (baseOnly)
-                            return OriginCritical;
-                        else
-                            return OriginCritical + GetBuffTotal(tag);
-                    }
-                case "crifdef":
-                case "cridefense":
-                case "criticaldefense":
-                    {
-                        if (baseOnly)
-                            return OriginCriticalDefense;
-                        else
-                            return OriginCriticalDefense + GetBuffTotal(tag);
-                    }
-                default:
-                    UnityEngine.Debug.LogError("invaild stats tag=" + tag);
-                    return 0;
-            }
-        }
-
-        private int GetBuffTotal(string valueTag)
-        {
-            int add = 0;
-            for (int i = 0; i < buffs.Count; i++)
-            {
-                add += buffs[i].GetValue(valueTag);
-            }
-
-            return add;
-        }
-
-        public void Add(string tag, int value)
-        {
-            tag = tag.Trim().ToLower();
-            switch (tag)
-            {
-                case "maxhp":
-                case "maxhealth":
-                    {
-                        OriginMaxHealth += value;
-
-                        if (OriginMaxHealth < 1)
-                        {
-                            OriginMaxHealth = 1;
-                        }
-
-                        break;
-                    }
-                case "hp":
-                case "health":
-                    {
-                        Health += value;
-                        int max = GetTotal("maxhp", false);
-                        if (Health > max)
-                        {
-                            Health = max;
-                        }
-                        break;
-                    }
-                case "attack":
-                    {
-                        OrginAttack += value;
-                        if (OrginAttack < 0) OrginAttack = 0;
-                        break;
-                    }
-                case "defense":
-                    {
-                        OrginDefense += value;
-                        if (OrginDefense < 0) OrginDefense = 0;
-                        break;
-                    }
-                case "speed":
-                    {
-                        OrginSpeed += value;
-                        if (OrginSpeed < 0) OrginSpeed = 0;
-                        break;
-                    }
-                case "cri":
-                case "critical":
-                    {
-                        OriginCritical += value;
-                        if (OriginCritical < 0) OriginCritical = 0;
-                        break;
-                    }
-                case "crifdef":
-                case "cridefense":
-                case "criticaldefense":
-                    {
-                        OriginCriticalDefense += value;
-                        if (OriginCriticalDefense < 0) OriginCriticalDefense = 0;
-                        break;
-                    }
-                default:
-                    UnityEngine.Debug.LogError("invaild stats tag=" + tag);
-                    break;
-            }
+            SkillTrigger = new ActorSkillTrigger(this, skills);
         }
 
         public void UseSkill(int index, Action onUsed)
         {
-            if (index < 0 || index >= skills.Count)
-            {
-                UnityEngine.Debug.LogError("using skill invaild index=" + index);
-                onUsed?.Invoke();
-                return;
-            }
-
-            skills[index].Execute(this, "OnActived", onUsed);
+            ((ActorSkillTrigger)SkillTrigger).UseSkill(index, onUsed);
         }
 
         public Data.SkillData GetSkillSource(int index)
         {
-            if (index < 0 || index >= skills.Count)
-            {
-                return null;
-            }
-
-            return skills[index].referenceSkillData;
-        }
-
-        public void Trigger(string timing, Action onEnded)
-        {
-            List<SkillInfo.ProcessableSkillInfo> processableSkillInfos = new List<SkillInfo.ProcessableSkillInfo>();
-            for (int i = 0; i < skills.Count; i++)
-            {
-                processableSkillInfos.Add(skills[i].GetProcessableSkillInfo(this, timing));
-            }
-
-            KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo> processor = new KahaGameCore.Processor.Processor<SkillInfo.ProcessableSkillInfo>(processableSkillInfos.ToArray());
-            processor.Start(onEnded, delegate { UnityEngine.Debug.LogError("Trigger shouldn't have Quit"); });
+            return ((ActorSkillTrigger)SkillTrigger).GetSkillSource(index);
         }
     }
 }

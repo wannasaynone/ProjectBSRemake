@@ -23,7 +23,7 @@ namespace ProjectBS.Combat.Command
 
         private void StartNextBeforeAttackStart()
         {
-            processData.caster.
+            processData.caster.SkillTrigger.Trigger("", null);
         }
     }
 }

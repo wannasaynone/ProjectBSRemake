@@ -18,7 +18,7 @@ namespace ProjectBS.Test
         {
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
-                processData.caster.Add(vars[0], int.Parse(vars[1]));
+                processData.caster.Stats.Add(vars[0], int.Parse(vars[1]));
                 onCompleted?.Invoke();
             }
         }
@@ -44,7 +44,7 @@ namespace ProjectBS.Test
             combatActor.UseSkill(0, delegate { testNumber = 1; });
 
             Assert.AreEqual(1, testNumber);
-            Assert.AreEqual(combatActor.GetTotal("Attack", false), 7);
+            Assert.AreEqual(7, combatActor.Stats.GetTotal("Attack", false));
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace ProjectBS.Test
                 Attack = 1,
                 Skills = new System.Collections.Generic.List<Data.SkillData> 
                 {
-                    new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }; OnActived { Test(Attack, 1);" }),
+                    new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); } OnActived { Test(Attack, 1); }" }),
                     new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }" }),
                     new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }" })
                 }
@@ -70,10 +70,15 @@ namespace ProjectBS.Test
 
             int testNumber = 0;
             Combat.CombatActor combatActor = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
-            combatActor.Trigger("OnTriggered", delegate { testNumber++; });
+            combatActor.SkillTrigger.Trigger("OnTriggered", delegate { testNumber++; });
 
             Assert.AreEqual(1, testNumber);
-            Assert.AreEqual(combatActor.GetTotal("Attack", false), 4);
+            Assert.AreEqual(4, combatActor.Stats.GetTotal("Attack", false));
+
+            combatActor.SkillTrigger.Trigger("OnActived", delegate { testNumber++; });
+
+            Assert.AreEqual(2, testNumber);
+            Assert.AreEqual(5, combatActor.Stats.GetTotal("Attack", false));
         }
     }
 }

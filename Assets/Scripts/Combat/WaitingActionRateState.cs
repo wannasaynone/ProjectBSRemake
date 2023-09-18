@@ -10,9 +10,9 @@ namespace ProjectBS.Combat
 
         public WaitingActionRateState(List<CombatActor> actors)
         {
-            actors.Sort((x, y) => y.GetTotal("Speed", false).CompareTo(x.GetTotal("Speed", false)));
+            actors.Sort((x, y) => y.Stats.GetTotal("Speed", false).CompareTo(x.Stats.GetTotal("Speed", false)));
             actorToActionDelta = new Dictionary<CombatActor, float>();
-            float baseSpeed = (float)actors[0].GetTotal("Speed", false);
+            float baseSpeed = (float)actors[0].Stats.GetTotal("Speed", false);
             for (int i = 0; i < actors.Count; i++)
             {
                 if (i == 0)
@@ -21,7 +21,7 @@ namespace ProjectBS.Combat
                 }
                 else
                 {
-                    actorToActionDelta.Add(actors[i], (float)actors[i].GetTotal("Speed", false) / baseSpeed);
+                    actorToActionDelta.Add(actors[i], (float)actors[i].Stats.GetTotal("Speed", false) / baseSpeed);
                 }
             }
         }
