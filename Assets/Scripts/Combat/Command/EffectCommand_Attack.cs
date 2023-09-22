@@ -17,13 +17,50 @@ namespace ProjectBS.Combat.Command
             this.onCompleted = onCompleted;
             this.onForceQuit = onForceQuit;
 
-            currentActorIndex = 0;
-            StartNextBeforeAttackStart();
+            Start_Caster_BeforeAttackStart();
         }
 
-        private void StartNextBeforeAttackStart()
+        private void Start_Caster_BeforeAttackStart()
         {
-            processData.caster.SkillTrigger.Trigger("", null);
+            currentActorIndex = -1;
+            processData.caster.SkillTrigger.Trigger(Const.BeforeAttackStart, Start_NextTarget_BeforeAttackStart);
+        }
+
+        private void Start_NextTarget_BeforeAttackStart()
+        {
+            currentActorIndex++;
+
+            if (currentActorIndex >= processData.targets.Count)
+            {
+                Start_Caster_OnAttackStarted();
+                return;
+            }
+
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.BeforeAttackStart, Start_NextTarget_BeforeAttackStart);
+        }
+
+        private void Start_Caster_OnAttackStarted()
+        {
+            currentActorIndex = -1;
+            processData.caster.SkillTrigger.Trigger(Const.OnAttackStarted, Start_NextTarget_OnAttackStarted);
+        }
+
+        private void Start_NextTarget_OnAttackStarted()
+        {
+            currentActorIndex++;
+
+            if (currentActorIndex >= processData.targets.Count)
+            {
+                CalculateDamage();
+                return;
+            }
+
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.OnAttackStarted, Start_NextTarget_OnAttackStarted);
+        }
+
+        private void CalculateDamage()
+        {
+
         }
     }
 }
