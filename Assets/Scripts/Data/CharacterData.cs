@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterData : MonoBehaviour
+namespace ProjectBS.Data
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CharacterData
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
