@@ -11,6 +11,8 @@ namespace ProjectBS.Combat.Command
 
         private int currentActorIndex = 0;
 
+        private System.Collections.Generic.List<int> damageList = new System.Collections.Generic.List<int>();
+
         public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
         {
             this.vars = vars;
@@ -51,6 +53,7 @@ namespace ProjectBS.Combat.Command
 
             if (currentActorIndex >= processData.targets.Count)
             {
+                currentActorIndex = -1;
                 CalculateDamage();
                 return;
             }
@@ -60,7 +63,57 @@ namespace ProjectBS.Combat.Command
 
         private void CalculateDamage()
         {
+            damageList = new System.Collections.Generic.List<int>();
+
+            for (int i = 0; i < processData.targets.Count; i++)
+            {
+                float rawDamage = KahaGameCore.Combat.Calculator.Calculate(new KahaGameCore.Combat.Calculator.CalculateData
+                {
+                    caster = processData.caster,
+                    target = processData.targets[currentActorIndex],
+                    formula = vars[0],
+                    useBaseValue = false
+                });
+                float defense = processData.targets[currentActorIndex].Stats.GetTotal(Const.Defense, false);
+
+                float finalDamage = (defense / (rawDamage + defense)) * rawDamage;
+                damageList.Add(Convert.ToInt32(finalDamage));
+            }
+
+            Start_Caster_OnDamageCalculated();
+        }
+
+        private void Start_Caster_OnDamageCalculated()
+        {
+            currentActorIndex = -1;
+            processData.caster.SkillTrigger.Trigger(Const.OnDamageCalculated, Start_Target_BeforeDamaged);
+        }
+
+        private void Start_Target_BeforeDamaged()
+        {
+            currentActorIndex++;
+            
+            if (currentActorIndex >= processData.targets.Count)
+            {
+                ApplyDamage();
+                return;
+            }
+
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.BeforeDamaged, Start_Target_BeforeDamaged);
+        }
+
+        private void ApplyDamage()
+        {
+            for (int i = 0; i < processData.targets.Count; i++)
+            {
+                processData.targets[i].Stats.Add(Const.HP, damageList[i]);
+            }
+
+            // TODO: add animation info
+
 
         }
+
+
     }
 }

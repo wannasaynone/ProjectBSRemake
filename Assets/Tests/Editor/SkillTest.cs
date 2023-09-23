@@ -1,42 +1,99 @@
 using NUnit.Framework;
 using KahaGameCore.Combat.Processor.EffectProcessor;
 using System;
+using System.Collections.Generic;
+using KahaGameCore.Combat;
 
 namespace ProjectBS.Test
 {
     public class SkillTest
     {
-        private class TestCommandFactory : EffectCommandFactoryBase
+        private class AddAttackCommandFactory : EffectCommandFactoryBase
         {
             public override EffectCommandBase Create()
             {
-                return new TestAddAttackCommand();
+                return new AddAttackCommand();
             }
         }
 
-        private class TestAddAttackCommand : EffectCommandBase
+        private class AddAttackCommand : EffectCommandBase
         {
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
                 processData.caster.Stats.Add(vars[0], int.Parse(vars[1]));
+
+                for (int i = 0; i < processData.targets.Count; i++)
+                {
+                    processData.targets[i].Stats.Add(vars[0], int.Parse(vars[1]));
+                }
+
                 onCompleted?.Invoke();
+            }
+        }
+
+        private class TestTargetSelecter
+        {
+            private Combat.CombatActor actor;
+
+            public void AddFakeTarget(Combat.CombatActor combatActor)
+            {
+                actor = combatActor;
+            }
+
+            public void StartSelect(Action<List<IActor>> onSelected)
+            {
+                onSelected?.Invoke(new List<IActor> { actor });
+            }
+        }
+
+        private class AddTargetCommandFactory : EffectCommandFactoryBase
+        {
+            private readonly TestTargetSelecter targetSelecter;
+
+            public AddTargetCommandFactory(TestTargetSelecter targetSelecter)
+            {
+                this.targetSelecter = targetSelecter;
+            }
+
+            public override EffectCommandBase Create()
+            {
+                return new AddTargetCommand(targetSelecter);
+            }
+        }
+
+        private class AddTargetCommand : EffectCommandBase
+        {
+            private readonly TestTargetSelecter targetSelecter;
+
+            public AddTargetCommand(TestTargetSelecter targetSelecter)
+            {
+                this.targetSelecter = targetSelecter;
+            }
+
+            public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
+            {
+                targetSelecter.StartSelect(delegate(List<IActor> targets)
+                {
+                    processData.targets.AddRange(targets);
+                    onCompleted?.Invoke();
+                });
             }
         }
 
         [Test]
         public void execute_skill()
         {
-            TestCommandFactory testCommandFactory = new TestCommandFactory();
+            AddAttackCommandFactory addAttackCommandFactory = new AddAttackCommandFactory();
 
             EffectCommandFactoryContainer effectCommandFactoryContainer = new EffectCommandFactoryContainer();
-            effectCommandFactoryContainer.RegisterFactory("Test", testCommandFactory);
+            effectCommandFactoryContainer.RegisterFactory("AddAttack", addAttackCommandFactory);
             
             EffectCommandDeserializer effectCommandDeserializer = new EffectCommandDeserializer(effectCommandFactoryContainer);
 
             Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
             {
                 Attack = 1,
-                Skills = new System.Collections.Generic.List<Data.SkillData> { new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnActived { Test(Attack, 1); Test(Attack, 5); }" }) }
+                Skills = new List<Data.SkillData> { new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnActived { AddAttack(Attack, 1); AddAttack(Attack, 5); }" }) }
             };
 
             int testNumber = 0;
@@ -48,9 +105,41 @@ namespace ProjectBS.Test
         }
 
         [Test]
+        public void add_target()
+        {
+            TestTargetSelecter targetSelecter = new TestTargetSelecter();
+
+            EffectCommandFactoryContainer effectCommandFactoryContainer = new EffectCommandFactoryContainer();
+            AddAttackCommandFactory addAttackCommandFactory = new AddAttackCommandFactory();
+            AddTargetCommandFactory addTargetCommandFactory = new AddTargetCommandFactory(targetSelecter);
+            effectCommandFactoryContainer.RegisterFactory("AddTarget", addTargetCommandFactory);
+            effectCommandFactoryContainer.RegisterFactory("AddAttack", addAttackCommandFactory);
+
+            EffectCommandDeserializer effectCommandDeserializer = new EffectCommandDeserializer(effectCommandFactoryContainer);
+
+            Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
+            {
+                Attack = 1,
+                Skills = new List<Data.SkillData> { new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnActived { AddTarget(); AddAttack(Attack, 1); }" }) }
+            };
+
+            int testNumber = 0;
+            Combat.CombatActor caster = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
+            Combat.CombatActor target = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
+
+            targetSelecter.AddFakeTarget(target);
+
+            caster.UseSkill(0, delegate { testNumber = 1; });
+
+            Assert.AreEqual(1, testNumber);
+            Assert.AreEqual(2, caster.Stats.GetTotal("Attack", false));
+            Assert.AreEqual(2, target.Stats.GetTotal("Attack", false));
+        }
+
+        [Test]
         public void trigger()
         {
-            TestCommandFactory testCommandFactory = new TestCommandFactory();
+            AddAttackCommandFactory testCommandFactory = new AddAttackCommandFactory();
 
             EffectCommandFactoryContainer effectCommandFactoryContainer = new EffectCommandFactoryContainer();
             effectCommandFactoryContainer.RegisterFactory("Test", testCommandFactory);
@@ -60,7 +149,7 @@ namespace ProjectBS.Test
             Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
             {
                 Attack = 1,
-                Skills = new System.Collections.Generic.List<Data.SkillData> 
+                Skills = new List<Data.SkillData> 
                 {
                     new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); } OnActived { Test(Attack, 1); }" }),
                     new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnTriggered { Test(Attack, 1); }" }),
