@@ -35,7 +35,7 @@ namespace ProjectBS.Test
         {
             private Combat.CombatActor actor;
 
-            public void AddFakeTarget(Combat.CombatActor combatActor)
+            public void PreAddFakeTarget(Combat.CombatActor combatActor)
             {
                 actor = combatActor;
             }
@@ -127,7 +127,7 @@ namespace ProjectBS.Test
             Combat.CombatActor caster = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
             Combat.CombatActor target = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
 
-            targetSelecter.AddFakeTarget(target);
+            targetSelecter.PreAddFakeTarget(target);
 
             caster.UseSkill(0, delegate { testNumber = 1; });
 

@@ -7,7 +7,6 @@ namespace ProjectBS.Combat.Command
     {
         private string[] vars;
         private Action onCompleted;
-        private Action onForceQuit;
 
         private int currentActorIndex = 0;
 
@@ -17,7 +16,6 @@ namespace ProjectBS.Combat.Command
         {
             this.vars = vars;
             this.onCompleted = onCompleted;
-            this.onForceQuit = onForceQuit;
 
             Start_Caster_BeforeAttackStart();
         }
@@ -86,34 +84,61 @@ namespace ProjectBS.Combat.Command
         private void Start_Caster_OnDamageCalculated()
         {
             currentActorIndex = -1;
-            processData.caster.SkillTrigger.Trigger(Const.OnDamageCalculated, Start_Target_BeforeDamaged);
+            processData.caster.SkillTrigger.Trigger(Const.OnDamageCalculated, Start_NextTarget_BeforeDamaged);
         }
 
-        private void Start_Target_BeforeDamaged()
+        private void Start_NextTarget_BeforeDamaged()
         {
             currentActorIndex++;
             
             if (currentActorIndex >= processData.targets.Count)
             {
-                ApplyDamage();
+                currentActorIndex = -1;
+
+                Start_NextTarget_ApplyDamage();
                 return;
             }
 
-            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.BeforeDamaged, Start_Target_BeforeDamaged);
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.BeforeDamaged, Start_NextTarget_BeforeDamaged);
         }
 
-        private void ApplyDamage()
+        private void Start_NextTarget_ApplyDamage()
         {
-            for (int i = 0; i < processData.targets.Count; i++)
+            currentActorIndex++;
+
+            if (currentActorIndex >= processData.targets.Count)
             {
-                processData.targets[i].Stats.Add(Const.HP, damageList[i]);
+                Start_Caster_OnAttackEnded();
+                return;
             }
 
-            // TODO: add animation info
+            if (damageList[currentActorIndex] > 0)
+            {
+                processData.targets[currentActorIndex].Stats.Add(Const.HP, -damageList[currentActorIndex]);
 
+                // TODO: add animation info
 
+                Start_NextTarget_OnGotDamaged();
+            }
+            else
+            {
+                Start_NextTarget_OnGotHit();
+            }
         }
 
+        private void Start_NextTarget_OnGotDamaged()
+        {
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.OnGotDamaged, Start_NextTarget_OnGotHit);
+        }
 
+        private void Start_NextTarget_OnGotHit()
+        {
+            processData.targets[currentActorIndex].SkillTrigger.Trigger(Const.OnGotHit, Start_NextTarget_ApplyDamage);
+        }
+
+        private void Start_Caster_OnAttackEnded()
+        {
+            processData.caster.SkillTrigger.Trigger(Const.OnAttackEnded, onCompleted);
+        }
     }
 }
