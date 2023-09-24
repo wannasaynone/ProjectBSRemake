@@ -20,37 +20,11 @@ MonoBehaviour:
     height: 1349.3334
   m_ShowMode: 4
   m_Title: Project
-  m_RootView: {fileID: 3}
+  m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 1298
-    y: 0
-    width: 734
-    height: 892
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
-  m_Panes:
-  - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,9 +37,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 4}
-  - {fileID: 6}
+  - {fileID: 3}
   - {fileID: 5}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -78,7 +52,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &4
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &5
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +95,31 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 6}
+  - {fileID: 12}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 2560
+    height: 1299.3334
+  m_MinSize: {x: 400, y: 200}
+  m_MaxSize: {x: 32384, y: 16192}
+  vertical: 0
+  controlID: 1077
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,17 +134,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 7}
-  - {fileID: 12}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 30
-    width: 2560
+    y: 0
+    width: 2032
     height: 1299.3334
-  m_MinSize: {x: 400, y: 200}
-  m_MaxSize: {x: 32384, y: 16192}
-  vertical: 0
-  controlID: 107
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 1082
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,33 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 8}
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 2032
-    height: 1299.3334
-  m_MinSize: {x: 300, y: 200}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 1
-  controlID: 108
---- !u!114 &8
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
   - {fileID: 9}
   - {fileID: 10}
-  - {fileID: 2}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -196,8 +170,8 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 109
---- !u!114 &9
+  controlID: 1083
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,12 +192,12 @@ MonoBehaviour:
     height: 892
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &10
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,6 +215,32 @@ MonoBehaviour:
     x: 460
     y: 0
     width: 838
+    height: 892
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1298
+    y: 0
+    width: 734
     height: 892
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -270,10 +270,10 @@ MonoBehaviour:
     height: 407.33337
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 14}
+  - {fileID: 17}
+  - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
@@ -297,1162 +297,13 @@ MonoBehaviour:
     height: 1299.3334
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 19}
   m_Panes:
+  - {fileID: 18}
   - {fileID: 19}
-  - {fileID: 13}
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &13
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Test Runner
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 2032
-    y: 72.66667
-    width: 527
-    height: 1278.3334
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_Spl:
-    ID: 160
-    splitterInitialOffset: 0
-    currentActiveSplitter: -1
-    realSizes:
-    - 906
-    - 302
-    relativeSizes:
-    - 0.75
-    - 0.25
-    minSizes:
-    - 32
-    - 32
-    maxSizes:
-    - 0
-    - 0
-    lastTotalSize: 1208
-    splitSize: 6
-    xOffset: 0
-    m_Version: 1
-    oldRealSizes: 
-    oldMinSizes: 
-    oldMaxSizes: 
-    oldSplitSize: 0
-  m_TestTypeToolbarIndex: 1
-  m_PlayModeTestListGUI:
-    m_Window: {fileID: 13}
-    m_NewResultList:
-    - id: 1051
-      uniqueId: '[ProjectBSRemake][suite]'
-      name: ProjectBSRemake
-      fullName: ProjectBSRemake
-      resultStatus: 0
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    m_ResultText: 
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 678d84b5ffffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategoryMask: 0
-      availableCategories:
-      - Uncategorized
-    m_SelectedOption: 0
-  m_EditModeTestListGUI:
-    m_Window: {fileID: 13}
-    m_NewResultList:
-    - id: 1000
-      uniqueId: '[ProjectBSRemake][suite]'
-      name: ProjectBSRemake
-      fullName: ProjectBSRemake
-      resultStatus: 1
-      duration: 0.0707165
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    - id: 1046
-      uniqueId: '[KahaGameCore.Tests.dll][suite]'
-      name: KahaGameCore.Tests.dll
-      fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/KahaGameCore.Tests.dll
-      resultStatus: 1
-      duration: 0.1449774
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1000
-      parentUniqueId: '[ProjectBSRemake][suite]'
-    - id: 1047
-      uniqueId: KahaGameCore.Tests.dll/[KahaGameCore][suite]
-      name: KahaGameCore
-      fullName: KahaGameCore
-      resultStatus: 1
-      duration: 0.1440792
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1046
-      parentUniqueId: '[KahaGameCore.Tests.dll][suite]'
-    - id: 1048
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-      name: Tests
-      fullName: KahaGameCore.Tests
-      resultStatus: 1
-      duration: 0.1431539
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1047
-      parentUniqueId: KahaGameCore.Tests.dll/[KahaGameCore][suite]
-    - id: 1001
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-      name: CalculatorTest
-      fullName: KahaGameCore.Tests.CalculatorTest
-      resultStatus: 1
-      duration: 0.0252747
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1002
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Calculate]
-      name: Calculate
-      fullName: KahaGameCore.Tests.CalculatorTest.Calculate
-      resultStatus: 1
-      duration: 0.0112293
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1003
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Calculate_if_typo]
-      name: Calculate_if_typo
-      fullName: KahaGameCore.Tests.CalculatorTest.Calculate_if_typo
-      resultStatus: 1
-      duration: 0.0002591
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1005
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Spciaial_command_random_when_typo]
-      name: Spciaial_command_random_when_typo
-      fullName: KahaGameCore.Tests.CalculatorTest.Spciaial_command_random_when_typo
-      resultStatus: 1
-      duration: 0.0020747
-      messages: 
-      output: '[CombatUtility][GetValueByCommand] Invaild command=Rando
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1004
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_random]
-      name: Special_command_random
-      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_random
-      resultStatus: 1
-      duration: 0.0009612
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1006
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_remember_read]
-      name: Special_command_remember_read
-      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_read
-      resultStatus: 1
-      duration: 0.0005981
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1007
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_remember_twice_then_read]
-      name: Special_command_remember_twice_then_read
-      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_twice_then_read
-      resultStatus: 1
-      duration: 0.0001502
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
-    - id: 1008
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CombatUnitTest][suite]
-      name: CombatUnitTest
-      fullName: KahaGameCore.Tests.CombatUnitTest
-      resultStatus: 1
-      duration: 0.0099155
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1009
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CombatUnitTest/[KahaGameCore.Tests][KahaGameCore.Tests.CombatUnitTest.Add_stats_and_get_total_value]
-      name: Add_stats_and_get_total_value
-      fullName: KahaGameCore.Tests.CombatUnitTest.Add_stats_and_get_total_value
-      resultStatus: 1
-      duration: 0.0035299
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1008
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CombatUnitTest][suite]
-    - id: 1010
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CombatUnitTest/[KahaGameCore.Tests][KahaGameCore.Tests.CombatUnitTest.Remove_stats]
-      name: Remove_stats
-      fullName: KahaGameCore.Tests.CombatUnitTest.Remove_stats
-      resultStatus: 1
-      duration: 0.0003662
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1008
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CombatUnitTest][suite]
-    - id: 1011
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
-      name: EffectCommandDeserializeTest
-      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest
-      resultStatus: 1
-      duration: 0.0076092
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1012
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize]
-      name: Deserialize
-      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize
-      resultStatus: 1
-      duration: 0.0018923
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1011
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
-    - id: 1013
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_block]
-      name: Deserialize_if_miss_block
-      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_block
-      resultStatus: 1
-      duration: 0.0013615
-      messages: 
-      output: '[EffectProcesser][GetEffectCommand] Invaild command=Test2{DebugLog
-
-        [EffectCommandDeserializer][DeserializeCommandLineToEffectData]
-        can''t get command=Test2{DebugLog, return null. check is missing factory
-        or raw data contains error
-
-        [EffectCommandDeserializer][DeserializeCommandToKvp]
-        invail line=Test2{DebugLog(this-is-some-debug-message-in-test-data-in-test-2-step),
-        continued
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1011
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
-    - id: 1014
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_semicolon]
-      name: Deserialize_if_miss_semicolon
-      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_semicolon
-      resultStatus: 1
-      duration: 0.0002803
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1011
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
-    - id: 1015
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
-      name: EffectProcessorTest
-      fullName: KahaGameCore.Tests.EffectProcessorTest
-      resultStatus: 1
-      duration: 0.0073392
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1016
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Process]
-      name: Process
-      fullName: KahaGameCore.Tests.EffectProcessorTest.Process
-      resultStatus: 1
-      duration: 0.0018109
-      messages: 
-      output: 'TestMsg
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1015
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
-    - id: 1018
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Process_with_special_command_if]
-      name: Process_with_special_command_if
-      fullName: KahaGameCore.Tests.EffectProcessorTest.Process_with_special_command_if
-      resultStatus: 1
-      duration: 0.0006219
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1015
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
-    - id: 1017
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Quit]
-      name: Quit
-      fullName: KahaGameCore.Tests.EffectProcessorTest.Quit
-      resultStatus: 1
-      duration: 0.0006997
-      messages: 
-      output: 'TestMsg
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1015
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
-    - id: 1019
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest][suite]
-      name: GameDataDeserializerImplementTest
-      fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest
-      resultStatus: 1
-      duration: 0.0126784
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1020
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataDeserializerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest.Deserialize]
-      name: Deserialize
-      fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest.Deserialize
-      resultStatus: 1
-      duration: 0.0092776
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1019
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest][suite]
-    - id: 1021
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-      name: GameDataManagerImplementTest
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest
-      resultStatus: 1
-      duration: 0.0165298
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1026
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Get_data]
-      name: Get_data
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Get_data
-      resultStatus: 1
-      duration: 0.0011157
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1022
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data]
-      name: Load_data
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data
-      resultStatus: 1
-      duration: 0.0006305
-      messages: 
-      output: 'T is loaded, use Unload first or set isForceUpdate=true
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1025
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_async]
-      name: Load_data_with_async
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_async
-      resultStatus: 1
-      duration: 0.0060155
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1023
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_force_update]
-      name: Load_data_with_force_update
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_force_update
-      resultStatus: 1
-      duration: 0.0003581
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1024
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_handler]
-      name: Load_data_with_handler
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_handler
-      resultStatus: 1
-      duration: 0.0003728
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1027
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Unload_data]
-      name: Unload_data
-      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Unload_data
-      resultStatus: 1
-      duration: 0.0001636
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1021
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
-    - id: 1028
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest][suite]
-      name: GameDataSerializerImplementTest
-      fullName: KahaGameCore.Tests.GameDataSerializerImplementTest
-      resultStatus: 1
-      duration: 0.0061172
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1029
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataSerializerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest.Serialize]
-      name: Serialize
-      fullName: KahaGameCore.Tests.GameDataSerializerImplementTest.Serialize
-      resultStatus: 1
-      duration: 0.002634
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1028
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest][suite]
-    - id: 1030
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-      name: InputEventHandlerTest
-      fullName: KahaGameCore.Tests.InputEventHandlerTest
-      resultStatus: 1
-      duration: 0.0117397
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1035
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Double_tap]
-      name: Double_tap
-      fullName: KahaGameCore.Tests.InputEventHandlerTest.Double_tap
-      resultStatus: 1
-      duration: 0.0004594
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1030
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-    - id: 1034
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Drag]
-      name: Drag
-      fullName: KahaGameCore.Tests.InputEventHandlerTest.Drag
-      resultStatus: 1
-      duration: 0.0003996
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1030
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-    - id: 1032
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Pressing]
-      name: Pressing
-      fullName: KahaGameCore.Tests.InputEventHandlerTest.Pressing
-      resultStatus: 1
-      duration: 0.0003244
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1030
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-    - id: 1031
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Singal_tap]
-      name: Singal_tap
-      fullName: KahaGameCore.Tests.InputEventHandlerTest.Singal_tap
-      resultStatus: 1
-      duration: 0.0002842
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1030
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-    - id: 1033
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Swipe]
-      name: Swipe
-      fullName: KahaGameCore.Tests.InputEventHandlerTest.Swipe
-      resultStatus: 1
-      duration: 0.0003233
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1030
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
-    - id: 1036
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest][suite]
-      name: ProcesserTest
-      fullName: KahaGameCore.Tests.ProcesserTest
-      resultStatus: 1
-      duration: 0.0041038
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1037
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ProcesserTest/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest.Process]
-      name: Process
-      fullName: KahaGameCore.Tests.ProcesserTest.Process
-      resultStatus: 1
-      duration: 0.0006523
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1036
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest][suite]
-    - id: 1038
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest][suite]
-      name: SaveHandlerTest
-      fullName: KahaGameCore.Tests.SaveHandlerTest
-      resultStatus: 1
-      duration: 0.031353
-      messages: 
-      output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
-        This is not allowed.  MonoBehaviours can only be added using AddComponent().
-        Alternatively, your script can inherit from ScriptableObject or no base class
-        at all
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1039
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/SaveHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest.Save_and_load]
-      name: Save_and_load
-      fullName: KahaGameCore.Tests.SaveHandlerTest.Save_and_load
-      resultStatus: 1
-      duration: 0.0275681
-      messages: 
-      output: 'Saved:C:/Users/user/AppData/LocalLow/DefaultCompany/ProjectBSRemake/Resources/Datas/
-
-        Json
-        Data Deleted: C:/Users/user/AppData/LocalLow/DefaultCompany/ProjectBSRemake/Resources/Datas/TestGameSave.txt
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1038
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest][suite]
-    - id: 1040
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-      name: ValueObjectTest
-      fullName: KahaGameCore.Tests.ValueObjectTest
-      resultStatus: 1
-      duration: 0.0050477
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1048
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
-    - id: 1042
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ValueObjectTest/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest.Add]
-      name: Add
-      fullName: KahaGameCore.Tests.ValueObjectTest.Add
-      resultStatus: 1
-      duration: 0.0002637
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1040
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-    - id: 1043
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ValueObjectTest/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest.Add_with_min_max]
-      name: Add_with_min_max
-      fullName: KahaGameCore.Tests.ValueObjectTest.Add_with_min_max
-      resultStatus: 1
-      duration: 0.0001644
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1040
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-    - id: 1041
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ValueObjectTest/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest.Create]
-      name: Create
-      fullName: KahaGameCore.Tests.ValueObjectTest.Create
-      resultStatus: 1
-      duration: 0.0001333
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1040
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-    - id: 1044
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ValueObjectTest/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest.Mutiply]
-      name: Mutiply
-      fullName: KahaGameCore.Tests.ValueObjectTest.Mutiply
-      resultStatus: 1
-      duration: 0.0001607
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1040
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-    - id: 1045
-      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ValueObjectTest/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest.Mutiply_with_max_min]
-      name: Mutiply_with_max_min
-      fullName: KahaGameCore.Tests.ValueObjectTest.Mutiply_with_max_min
-      resultStatus: 1
-      duration: 0.0001435
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1040
-      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ValueObjectTest][suite]
-    - id: 1051
-      uniqueId: '[ProjectBS.Tests.dll][suite]'
-      name: ProjectBS.Tests.dll
-      fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/ProjectBS.Tests.dll
-      resultStatus: 1
-      duration: 0.0436003
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1000
-      parentUniqueId: '[ProjectBSRemake][suite]'
-    - id: 1052
-      uniqueId: ProjectBS.Tests.dll/[ProjectBS][suite]
-      name: ProjectBS
-      fullName: ProjectBS
-      resultStatus: 1
-      duration: 0.042826
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1051
-      parentUniqueId: '[ProjectBS.Tests.dll][suite]'
-    - id: 1053
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
-      name: Test
-      fullName: ProjectBS.Test
-      resultStatus: 1
-      duration: 0.0421819
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1052
-      parentUniqueId: ProjectBS.Tests.dll/[ProjectBS][suite]
-    - id: 1049
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest][suite]
-      name: CombatStateTest
-      fullName: ProjectBS.Test.CombatStateTest
-      resultStatus: 1
-      duration: 0.0291055
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1053
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
-    - id: 1050
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/CombatStateTest/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest.waiting_action_rate_state]
-      name: waiting_action_rate_state
-      fullName: ProjectBS.Test.CombatStateTest.waiting_action_rate_state
-      resultStatus: 1
-      duration: 0.0180802
-      messages: 
-      output: 'player_actor1 delta=1, actionRate=1
-
-        enemy_actor1 delta=0.9,
-        actionRate=0.9
-
-        enemy_actor2 delta=0.6, actionRate=0.6
-
-        player_actor2
-        delta=0.5, actionRate=0.5
-
-        player_actor3 delta=0.3333333, actionRate=0.3333333
-
-        enemy_actor3
-        delta=0.3, actionRate=0.3
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1049
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest][suite]
-    - id: 1051
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
-      name: SkillTest
-      fullName: ProjectBS.Test.SkillTest
-      resultStatus: 1
-      duration: 0.0380749
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1055
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
-    - id: 1053
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.add_target]
-      name: add_target
-      fullName: ProjectBS.Test.SkillTest.add_target
-      resultStatus: 1
-      duration: 0.0209437
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1051
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
-    - id: 1052
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.execute_skill]
-      name: execute_skill
-      fullName: ProjectBS.Test.SkillTest.execute_skill
-      resultStatus: 1
-      duration: 0.0006444
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1051
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
-    - id: 1053
-      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.trigger]
-      name: trigger
-      fullName: ProjectBS.Test.SkillTest.trigger
-      resultStatus: 1
-      duration: 0.0011523
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1051
-      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
-    m_ResultText: add_target (0.021s)
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 67ea4880
-      m_LastClickedID: -2142705049
-      m_ExpandedIDs: 2e83b6a9678d84b5c71be9bb80a235d4e10510f63026b815a80c881755c9873d58c4033fffffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategoryMask: 0
-      availableCategories:
-      - Uncategorized
---- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1480,7 +331,7 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &15
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1511,9 +362,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: ce4c0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 28fbffff
+      m_ExpandedIDs: 66bdffffa0c5ffffa2cbffffe2e2ffffd4efffff5af3ffff28fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1529,7 +380,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1537,7 +388,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 96590fb0a30fec74a882d349f3a29265
---- !u!114 &16
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1897,7 +748,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &17
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1956,7 +807,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -1969,7 +820,7 @@ MonoBehaviour:
       y: 21
       width: 732
       height: 850
-    m_Scale: {x: 0.6804687, y: 0.68046874}
+    m_Scale: {x: 0.6640625, y: 0.6640625}
     m_Translation: {x: 366, y: 425}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1977,19 +828,19 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -537.86456
-      y: -624.56946
-      width: 1075.7291
-      height: 1249.1389
+      x: -551.15295
+      y: -640
+      width: 1102.3059
+      height: 1280
     m_MinimalGUI: 1
-  m_defaultScale: 0.68046874
+  m_defaultScale: 0.6640625
   m_LastWindowPixelSize: {x: 1098, y: 1306.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &18
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2030,22 +881,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Tests/Editor
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Tests/Editor
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\user\Documents\work\ProjectBSRemake
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ac4c0000
-    m_LastClickedID: 19628
-    m_ExpandedIDs: 000000009c4c0000ae4c000000ca9a3b
+    scrollPos: {x: 0, y: 1.666626}
+    m_SelectedIDs: ce4c0000
+    m_LastClickedID: 19662
+    m_ExpandedIDs: 000000009c4c0000a64c0000ae4c00005a520000605200008652000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2073,7 +924,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009c4c0000
+    m_ExpandedIDs: 000000009c4c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2100,7 +951,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2129,7 +980,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 235
---- !u!114 &19
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2170,3 +1021,1001 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+--- !u!114 &19
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2032
+    y: 72.66667
+    width: 527
+    height: 1278.3334
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 1319
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 906
+    - 302
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 1208
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 19}
+    m_NewResultList:
+    - id: 1051
+      uniqueId: '[ProjectBSRemake][suite]'
+      name: ProjectBSRemake
+      fullName: ProjectBSRemake
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 678d84b5ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 19}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[ProjectBSRemake][suite]'
+      name: ProjectBSRemake
+      fullName: ProjectBSRemake
+      resultStatus: 1
+      duration: 0.1756179
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1046
+      uniqueId: '[KahaGameCore.Tests.dll][suite]'
+      name: KahaGameCore.Tests.dll
+      fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/KahaGameCore.Tests.dll
+      resultStatus: 1
+      duration: 0.1268686
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[ProjectBSRemake][suite]'
+    - id: 1047
+      uniqueId: KahaGameCore.Tests.dll/[KahaGameCore][suite]
+      name: KahaGameCore
+      fullName: KahaGameCore
+      resultStatus: 1
+      duration: 0.1255127
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1046
+      parentUniqueId: '[KahaGameCore.Tests.dll][suite]'
+    - id: 1048
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+      name: Tests
+      fullName: KahaGameCore.Tests
+      resultStatus: 1
+      duration: 0.1248979
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1047
+      parentUniqueId: KahaGameCore.Tests.dll/[KahaGameCore][suite]
+    - id: 1001
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+      name: CalculatorTest
+      fullName: KahaGameCore.Tests.CalculatorTest
+      resultStatus: 1
+      duration: 0.0261469
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1002
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Calculate]
+      name: Calculate
+      fullName: KahaGameCore.Tests.CalculatorTest.Calculate
+      resultStatus: 1
+      duration: 0.0106482
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1003
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Calculate_if_typo]
+      name: Calculate_if_typo
+      fullName: KahaGameCore.Tests.CalculatorTest.Calculate_if_typo
+      resultStatus: 1
+      duration: 0.0002179
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1005
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Spciaial_command_random_when_typo]
+      name: Spciaial_command_random_when_typo
+      fullName: KahaGameCore.Tests.CalculatorTest.Spciaial_command_random_when_typo
+      resultStatus: 1
+      duration: 0.0025942
+      messages: 
+      output: '[CombatUtility][GetValueByCommand] Invaild command=Rando
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1004
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_random]
+      name: Special_command_random
+      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_random
+      resultStatus: 1
+      duration: 0.0009942
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1006
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_remember_read]
+      name: Special_command_remember_read
+      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_read
+      resultStatus: 1
+      duration: 0.0010034
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1007
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/CalculatorTest/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest.Special_command_remember_twice_then_read]
+      name: Special_command_remember_twice_then_read
+      fullName: KahaGameCore.Tests.CalculatorTest.Special_command_remember_twice_then_read
+      resultStatus: 1
+      duration: 0.0001624
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.CalculatorTest][suite]
+    - id: 1011
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
+      name: EffectCommandDeserializeTest
+      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest
+      resultStatus: 1
+      duration: 0.0185574
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1012
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize]
+      name: Deserialize
+      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize
+      resultStatus: 1
+      duration: 0.005068
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
+    - id: 1013
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_block]
+      name: Deserialize_if_miss_block
+      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_block
+      resultStatus: 1
+      duration: 0.00127
+      messages: 
+      output: '[EffectProcesser][GetEffectCommand] Invaild command=Test2{DebugLog
+
+        [EffectCommandDeserializer][DeserializeCommandLineToEffectData]
+        can''t get command=Test2{DebugLog, return null. check is missing factory
+        or raw data contains error
+
+        [EffectCommandDeserializer][DeserializeCommandToKvp]
+        invail line=Test2{DebugLog(this-is-some-debug-message-in-test-data-in-test-2-step),
+        continued
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
+    - id: 1014
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectCommandDeserializeTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_semicolon]
+      name: Deserialize_if_miss_semicolon
+      fullName: KahaGameCore.Tests.EffectCommandDeserializeTest.Deserialize_if_miss_semicolon
+      resultStatus: 1
+      duration: 0.0002528
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectCommandDeserializeTest][suite]
+    - id: 1015
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
+      name: EffectProcessorTest
+      fullName: KahaGameCore.Tests.EffectProcessorTest
+      resultStatus: 1
+      duration: 0.0079936
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1016
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Process]
+      name: Process
+      fullName: KahaGameCore.Tests.EffectProcessorTest.Process
+      resultStatus: 1
+      duration: 0.0026169
+      messages: 
+      output: 'TestMsg
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
+    - id: 1018
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Process_with_special_command_if]
+      name: Process_with_special_command_if
+      fullName: KahaGameCore.Tests.EffectProcessorTest.Process_with_special_command_if
+      resultStatus: 1
+      duration: 0.0006206
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
+    - id: 1017
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/EffectProcessorTest/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest.Quit]
+      name: Quit
+      fullName: KahaGameCore.Tests.EffectProcessorTest.Quit
+      resultStatus: 1
+      duration: 0.0007092
+      messages: 
+      output: 'TestMsg
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.EffectProcessorTest][suite]
+    - id: 1019
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest][suite]
+      name: GameDataDeserializerImplementTest
+      fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest
+      resultStatus: 1
+      duration: 0.013362
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1020
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataDeserializerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest.Deserialize]
+      name: Deserialize
+      fullName: KahaGameCore.Tests.GameDataDeserializerImplementTest.Deserialize
+      resultStatus: 1
+      duration: 0.0090356
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1019
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataDeserializerImplementTest][suite]
+    - id: 1021
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+      name: GameDataManagerImplementTest
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest
+      resultStatus: 1
+      duration: 0.0167121
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1026
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Get_data]
+      name: Get_data
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Get_data
+      resultStatus: 1
+      duration: 0.0014433
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1022
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data]
+      name: Load_data
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data
+      resultStatus: 1
+      duration: 0.0006041
+      messages: 
+      output: 'T is loaded, use Unload first or set isForceUpdate=true
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1025
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_async]
+      name: Load_data_with_async
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_async
+      resultStatus: 1
+      duration: 0.0055974
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1023
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_force_update]
+      name: Load_data_with_force_update
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_force_update
+      resultStatus: 1
+      duration: 0.0005125
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1024
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_handler]
+      name: Load_data_with_handler
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Load_data_with_handler
+      resultStatus: 1
+      duration: 0.0003422
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1027
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataManagerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest.Unload_data]
+      name: Unload_data
+      fullName: KahaGameCore.Tests.GameDataManagerImplementTest.Unload_data
+      resultStatus: 1
+      duration: 0.0001606
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataManagerImplementTest][suite]
+    - id: 1028
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest][suite]
+      name: GameDataSerializerImplementTest
+      fullName: KahaGameCore.Tests.GameDataSerializerImplementTest
+      resultStatus: 1
+      duration: 0.0065318
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1029
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/GameDataSerializerImplementTest/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest.Serialize]
+      name: Serialize
+      fullName: KahaGameCore.Tests.GameDataSerializerImplementTest.Serialize
+      resultStatus: 1
+      duration: 0.0027293
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1028
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.GameDataSerializerImplementTest][suite]
+    - id: 1030
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+      name: InputEventHandlerTest
+      fullName: KahaGameCore.Tests.InputEventHandlerTest
+      resultStatus: 1
+      duration: 0.0057592
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1035
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Double_tap]
+      name: Double_tap
+      fullName: KahaGameCore.Tests.InputEventHandlerTest.Double_tap
+      resultStatus: 1
+      duration: 0.0003374
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1030
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+    - id: 1034
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Drag]
+      name: Drag
+      fullName: KahaGameCore.Tests.InputEventHandlerTest.Drag
+      resultStatus: 1
+      duration: 0.0003388
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1030
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+    - id: 1032
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Pressing]
+      name: Pressing
+      fullName: KahaGameCore.Tests.InputEventHandlerTest.Pressing
+      resultStatus: 1
+      duration: 0.000228
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1030
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+    - id: 1031
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Singal_tap]
+      name: Singal_tap
+      fullName: KahaGameCore.Tests.InputEventHandlerTest.Singal_tap
+      resultStatus: 1
+      duration: 0.0002162
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1030
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+    - id: 1033
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/InputEventHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest.Swipe]
+      name: Swipe
+      fullName: KahaGameCore.Tests.InputEventHandlerTest.Swipe
+      resultStatus: 1
+      duration: 0.0002652
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1030
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.InputEventHandlerTest][suite]
+    - id: 1036
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest][suite]
+      name: ProcesserTest
+      fullName: KahaGameCore.Tests.ProcesserTest
+      resultStatus: 1
+      duration: 0.0036853
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1037
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/ProcesserTest/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest.Process]
+      name: Process
+      fullName: KahaGameCore.Tests.ProcesserTest.Process
+      resultStatus: 1
+      duration: 0.0006415
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1036
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.ProcesserTest][suite]
+    - id: 1038
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest][suite]
+      name: SaveHandlerTest
+      fullName: KahaGameCore.Tests.SaveHandlerTest
+      resultStatus: 1
+      duration: 0.0202742
+      messages: 
+      output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
+        This is not allowed.  MonoBehaviours can only be added using AddComponent().
+        Alternatively, your script can inherit from ScriptableObject or no base class
+        at all
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/[KahaGameCore.Tests][KahaGameCore.Tests][suite]
+    - id: 1039
+      uniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/SaveHandlerTest/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest.Save_and_load]
+      name: Save_and_load
+      fullName: KahaGameCore.Tests.SaveHandlerTest.Save_and_load
+      resultStatus: 1
+      duration: 0.0159992
+      messages: 
+      output: 'Saved:C:/Users/user/AppData/LocalLow/DefaultCompany/ProjectBSRemake/Resources/Datas/
+
+        Json
+        Data Deleted: C:/Users/user/AppData/LocalLow/DefaultCompany/ProjectBSRemake/Resources/Datas/TestGameSave.txt
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1038
+      parentUniqueId: KahaGameCore.Tests.dll/KahaGameCore/Tests/[KahaGameCore.Tests][KahaGameCore.Tests.SaveHandlerTest][suite]
+    - id: 1051
+      uniqueId: '[ProjectBS.Tests.dll][suite]'
+      name: ProjectBS.Tests.dll
+      fullName: D:/work/ProjectBSRemake/Library/ScriptAssemblies/ProjectBS.Tests.dll
+      resultStatus: 1
+      duration: 0.0282859
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[ProjectBSRemake][suite]'
+    - id: 1052
+      uniqueId: ProjectBS.Tests.dll/[ProjectBS][suite]
+      name: ProjectBS
+      fullName: ProjectBS
+      resultStatus: 1
+      duration: 0.0246213
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1051
+      parentUniqueId: '[ProjectBS.Tests.dll][suite]'
+    - id: 1053
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
+      name: Test
+      fullName: ProjectBS.Test
+      resultStatus: 1
+      duration: 0.0243738
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1052
+      parentUniqueId: ProjectBS.Tests.dll/[ProjectBS][suite]
+    - id: 1049
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest][suite]
+      name: CombatStateTest
+      fullName: ProjectBS.Test.CombatStateTest
+      resultStatus: 1
+      duration: 0.0090435
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1053
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
+    - id: 1050
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/CombatStateTest/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest.waiting_action_rate_state]
+      name: waiting_action_rate_state
+      fullName: ProjectBS.Test.CombatStateTest.waiting_action_rate_state
+      resultStatus: 1
+      duration: 0.0047485
+      messages: 
+      output: 'player_actor1 delta=1, actionRate=1
+
+        enemy_actor1 delta=0.9,
+        actionRate=0.9
+
+        enemy_actor2 delta=0.6, actionRate=0.6
+
+        player_actor2
+        delta=0.5, actionRate=0.5
+
+        player_actor3 delta=0.3333333, actionRate=0.3333333
+
+        enemy_actor3
+        delta=0.3, actionRate=0.3
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.CombatStateTest][suite]
+    - id: 1051
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
+      name: SkillTest
+      fullName: ProjectBS.Test.SkillTest
+      resultStatus: 1
+      duration: 0.011498
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1055
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/[ProjectBS.Tests][ProjectBS.Test][suite]
+    - id: 1053
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.add_target]
+      name: add_target
+      fullName: ProjectBS.Test.SkillTest.add_target
+      resultStatus: 1
+      duration: 0.0018792
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1051
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
+    - id: 1052
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.execute_skill]
+      name: execute_skill
+      fullName: ProjectBS.Test.SkillTest.execute_skill
+      resultStatus: 1
+      duration: 0.0006288
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1051
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
+    - id: 1053
+      uniqueId: ProjectBS.Tests.dll/ProjectBS/Test/SkillTest/[ProjectBS.Tests][ProjectBS.Test.SkillTest.trigger]
+      name: trigger
+      fullName: ProjectBS.Test.SkillTest.trigger
+      resultStatus: 1
+      duration: 0.0012326
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1051
+      parentUniqueId: ProjectBS.Tests.dll/ProjectBS/Test/[ProjectBS.Tests][ProjectBS.Test.SkillTest][suite]
+    m_ResultText: ProjectBSRemake (0.176s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 678d84b5
+      m_LastClickedID: -1249604249
+      m_ExpandedIDs: 2e83b6a9678d84b5c71be9bb80a235d4e10510f63026b815a80c881755c9873d58c4033fffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized

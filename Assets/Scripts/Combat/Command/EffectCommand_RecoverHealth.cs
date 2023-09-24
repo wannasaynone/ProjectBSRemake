@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using KahaGameCore.Combat.Processor.EffectProcessor;
+using System;
 
-public class EffectCommand_RecoverHealth : MonoBehaviour
+namespace ProjectBS.Combat.Command
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EffectCommand_RecoverHealth : EffectCommandBase
     {
-        
-    }
+        public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
+        {
+            for (int i = 0; i < processData.targets.Count; i++)
+            {
+                float rawHealth = KahaGameCore.Combat.Calculator.Calculate(new KahaGameCore.Combat.Calculator.CalculateData
+                {
+                    caster = processData.caster,
+                    target = processData.targets[i],
+                    formula = vars[0],
+                    useBaseValue = false
+                });
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                if (rawHealth < 0f)
+                    rawHealth = 0f;
+
+                processData.targets[i].Stats.AddBase(Const.HP, Convert.ToInt32(rawHealth));
+
+                // TODO: add animtion info
+
+                onCompleted?.Invoke();
+            }
+        }
     }
 }

@@ -145,7 +145,25 @@ namespace ProjectBS.Combat
 
         public class ActorStats : KahaGameCore.Combat.IValueContainer
         {
+            private struct ValueContainer
+            {
+                public Guid guid;
+                public string tag;
+                public int value;
+
+                public void AddValue(int newValue)
+                {
+                    value += newValue;
+                }
+
+                public void SetValue(int newValue)
+                {
+                    value = newValue;
+                }
+            }
+
             private readonly List<BuffInfo> buffs = new List<BuffInfo>();
+            private readonly List<ValueContainer> tempValues = new List<ValueContainer>();
 
             public int OriginMaxHealth { get; private set; }
             public int Health { get; private set; }
@@ -177,7 +195,7 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginMaxHealth;
                             else
-                                return OriginMaxHealth + GetBuffTotal(tag);
+                                return OriginMaxHealth + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     case "hp":
                     case "health":
@@ -189,21 +207,21 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OrginAttack;
                             else
-                                return OrginAttack + GetBuffTotal(tag);
+                                return OrginAttack + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     case "defense":
                         {
                             if (baseOnly)
                                 return OrginDefense;
                             else
-                                return OrginDefense + GetBuffTotal(tag);
+                                return OrginDefense + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     case "speed":
                         {
                             if (baseOnly)
                                 return OrginSpeed;
                             else
-                                return OrginSpeed + GetBuffTotal(tag);
+                                return OrginSpeed + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     case "cri":
                     case "critical":
@@ -211,7 +229,7 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginCritical;
                             else
-                                return OriginCritical + GetBuffTotal(tag);
+                                return OriginCritical + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     case "crifdef":
                     case "cridefense":
@@ -220,7 +238,7 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginCriticalDefense;
                             else
-                                return OriginCriticalDefense + GetBuffTotal(tag);
+                                return OriginCriticalDefense + GetBuffTotal(tag) + GetTempTotal(tag);
                         }
                     default:
                         UnityEngine.Debug.LogError("invaild stats tag=" + tag);
@@ -228,7 +246,32 @@ namespace ProjectBS.Combat
                 }
             }
 
-            public void Add(string tag, int value)
+            private int GetBuffTotal(string valueTag)
+            {
+                int add = 0;
+                for (int i = 0; i < buffs.Count; i++)
+                {
+                    add += buffs[i].GetValue(valueTag);
+                }
+
+                return add;
+            }
+
+            private int GetTempTotal(string valueTag)
+            {
+                int add = 0;
+                for (int i = 0; i < tempValues.Count; i++)
+                {
+                    if (tempValues[i].tag == valueTag)
+                    {
+                        add += tempValues[i].value;
+                    }
+                }
+
+                return add;
+            }
+
+            public void AddBase(string tag, int value)
             {
                 tag = tag.Trim().ToLower();
                 switch (tag)
@@ -242,7 +285,6 @@ namespace ProjectBS.Combat
                             {
                                 OriginMaxHealth = 1;
                             }
-
                             break;
                         }
                     case "hp":
@@ -295,15 +337,108 @@ namespace ProjectBS.Combat
                 }
             }
 
-            private int GetBuffTotal(string valueTag)
+            public void SetBase(string tag, int value)
             {
-                int add = 0;
-                for (int i = 0; i < buffs.Count; i++)
+                tag = tag.Trim().ToLower();
+                switch (tag)
                 {
-                    add += buffs[i].GetValue(valueTag);
-                }
+                    case "maxhp":
+                    case "maxhealth":
+                        {
+                            OriginMaxHealth = value;
 
-                return add;
+                            if (OriginMaxHealth < 1)
+                            {
+                                OriginMaxHealth = 1;
+                            }
+                            break;
+                        }
+                    case "hp":
+                    case "health":
+                        {
+                            Health = value;
+                            int max = GetTotal("maxhp", false);
+                            if (Health > max)
+                            {
+                                Health = max;
+                            }
+                            break;
+                        }
+                    case "attack":
+                        {
+                            OrginAttack = value;
+                            if (OrginAttack < 0) OrginAttack = 0;
+                            break;
+                        }
+                    case "defense":
+                        {
+                            OrginDefense = value;
+                            if (OrginDefense < 0) OrginDefense = 0;
+                            break;
+                        }
+                    case "speed":
+                        {
+                            OrginSpeed = value;
+                            if (OrginSpeed < 0) OrginSpeed = 0;
+                            break;
+                        }
+                    case "cri":
+                    case "critical":
+                        {
+                            OriginCritical = value;
+                            if (OriginCritical < 0) OriginCritical = 0;
+                            break;
+                        }
+                    case "crifdef":
+                    case "cridefense":
+                    case "criticaldefense":
+                        {
+                            OriginCriticalDefense = value;
+                            if (OriginCriticalDefense < 0) OriginCriticalDefense = 0;
+                            break;
+                        }
+                    default:
+                        UnityEngine.Debug.LogError("invaild stats tag=" + tag);
+                        break;
+                }
+            }
+
+            public Guid Add(string tag, int value)
+            {
+                Guid newGuid = Guid.NewGuid();
+
+                tempValues.Add(new ValueContainer
+                {
+                    guid = newGuid,
+                    tag = tag,
+                    value = value
+                });
+
+                return newGuid;
+            }
+
+            public void SetTemp(Guid guid, int value)
+            {
+                for (int i = 0; i < tempValues.Count; i++)
+                {
+                    if (tempValues[i].guid.CompareTo(guid) == 0)
+                    {
+                        tempValues[i].SetValue(value);
+                        break;
+                    }
+                }
+            }
+
+            public void AddToTemp(Guid guid, int value)
+            {
+                for (int i = 0; i < tempValues.Count; i++)
+                {
+                    if (tempValues[i].guid.CompareTo(guid) == 0)
+                    {
+                        tempValues[i].AddValue(value);
+                        break;
+                    }
+                }
             }
         }
 

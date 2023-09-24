@@ -20,11 +20,11 @@ namespace ProjectBS.Test
         {
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
-                processData.caster.Stats.Add(vars[0], int.Parse(vars[1]));
+                processData.caster.Stats.AddBase(vars[0], int.Parse(vars[1]));
 
                 for (int i = 0; i < processData.targets.Count; i++)
                 {
-                    processData.targets[i].Stats.Add(vars[0], int.Parse(vars[1]));
+                    processData.targets[i].Stats.AddBase(vars[0], int.Parse(vars[1]));
                 }
 
                 onCompleted?.Invoke();

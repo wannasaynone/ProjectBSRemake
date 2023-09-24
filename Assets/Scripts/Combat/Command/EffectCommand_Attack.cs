@@ -10,7 +10,7 @@ namespace ProjectBS.Combat.Command
 
         private int currentActorIndex = 0;
 
-        private System.Collections.Generic.List<int> damageList = new System.Collections.Generic.List<int>();
+        private readonly static System.Collections.Generic.Dictionary<KahaGameCore.Combat.IActor, Guid> static_actorToDamageGuid = new System.Collections.Generic.Dictionary<KahaGameCore.Combat.IActor, Guid>();
 
         public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
         {
@@ -61,21 +61,32 @@ namespace ProjectBS.Combat.Command
 
         private void CalculateDamage()
         {
-            damageList = new System.Collections.Generic.List<int>();
-
             for (int i = 0; i < processData.targets.Count; i++)
             {
                 float rawDamage = KahaGameCore.Combat.Calculator.Calculate(new KahaGameCore.Combat.Calculator.CalculateData
                 {
                     caster = processData.caster,
-                    target = processData.targets[currentActorIndex],
+                    target = processData.targets[i],
                     formula = vars[0],
                     useBaseValue = false
                 });
-                float defense = processData.targets[currentActorIndex].Stats.GetTotal(Const.Defense, false);
+                float defense = processData.targets[i].Stats.GetTotal(Const.Defense, false);
 
                 float finalDamage = (defense / (rawDamage + defense)) * rawDamage;
-                damageList.Add(Convert.ToInt32(finalDamage));
+
+                if (finalDamage < 1f)
+                    finalDamage = 1f;
+
+                if (static_actorToDamageGuid.ContainsKey(processData.targets[i]))
+                {
+                    Guid guid = static_actorToDamageGuid[processData.targets[i]];
+                    processData.targets[i].Stats.SetTemp(guid, Convert.ToInt32(finalDamage));
+                }
+                else
+                {
+                    Guid guid = processData.targets[i].Stats.Add(Const.Damage, Convert.ToInt32(finalDamage));
+                    static_actorToDamageGuid.Add(processData.targets[i], guid);
+                }
             }
 
             Start_Caster_OnDamageCalculated();
@@ -112,9 +123,11 @@ namespace ProjectBS.Combat.Command
                 return;
             }
 
-            if (damageList[currentActorIndex] > 0)
+            int damage = processData.targets[currentActorIndex].Stats.GetTotal(Const.Damage, false);
+
+            if (damage > 0)
             {
-                processData.targets[currentActorIndex].Stats.Add(Const.HP, -damageList[currentActorIndex]);
+                processData.targets[currentActorIndex].Stats.AddBase(Const.HP, -damage);
 
                 // TODO: add animation info
 

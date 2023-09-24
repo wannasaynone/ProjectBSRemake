@@ -9,7 +9,7 @@ namespace ProjectBS.Combat.Command
         {
             for (int i = 0; i < processData.targets.Count; i++)
             {
-                processData.targets[i].Stats.Add(Const.CannotAct, 1);
+                processData.targets[i].Stats.AddBase(Const.CannotAct, 1);
             }
 
             onCompleted?.Invoke();

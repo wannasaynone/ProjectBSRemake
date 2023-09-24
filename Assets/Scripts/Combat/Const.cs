@@ -16,5 +16,7 @@ namespace ProjectBS.Combat
         public const string OnGotDamaged = "OnGotDamaged";
         public const string OnGotHit = "OnGotHit";
         public const string OnAttackEnded = "OnAttackEnded";
+
+        public const string Damage = "Damage";
     }
 }
