@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using KahaGameCore.Combat.Processor.EffectProcessor;
+using System;
 
-public class EffectCommand_SelectSelf : MonoBehaviour
+namespace ProjectBS.Combat.Command
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EffectCommand_SelectSelf : EffectCommandBase
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
+        {
+            processData.targets.Add(processData.caster);
+            onCompleted?.Invoke();
+        }
     }
 }

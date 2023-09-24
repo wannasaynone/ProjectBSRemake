@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using KahaGameCore.Combat.Processor.EffectProcessor;
+using System;
 
-public class EffectCommand_Select : MonoBehaviour
+namespace ProjectBS.Combat.Command
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EffectCommand_Select : EffectCommandBase
     {
-        
-    }
+        private readonly ITargetSelector targetSelector;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private Action onCompleted;
+
+        public EffectCommand_Select(ITargetSelector targetSelector)
+        {
+            this.targetSelector = targetSelector;
+        }
+
+        public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
+        {
+            this.onCompleted = onCompleted;
+            targetSelector.StartSelect(vars, OnSelected);
+        }
+
+        private void OnSelected(System.Collections.Generic.List<KahaGameCore.Combat.IActor> targets)
+        {
+            processData.targets.AddRange(targets);
+            onCompleted?.Invoke();
+        }
     }
 }

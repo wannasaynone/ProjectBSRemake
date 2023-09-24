@@ -31,7 +31,7 @@ namespace ProjectBS.Test
             }
         }
 
-        private class TestTargetSelecter
+        private class TestTargetSelecter : Combat.ITargetSelector
         {
             private Combat.CombatActor actor;
 
@@ -40,7 +40,7 @@ namespace ProjectBS.Test
                 actor = combatActor;
             }
 
-            public void StartSelect(Action<List<IActor>> onSelected)
+            public void StartSelect(string[] vars, Action<List<IActor>> onSelected)
             {
                 onSelected?.Invoke(new List<IActor> { actor });
             }
@@ -63,16 +63,16 @@ namespace ProjectBS.Test
 
         private class AddTargetCommand : EffectCommandBase
         {
-            private readonly TestTargetSelecter targetSelecter;
+            private readonly Combat.ITargetSelector targetSelecter;
 
-            public AddTargetCommand(TestTargetSelecter targetSelecter)
+            public AddTargetCommand(Combat.ITargetSelector targetSelecter)
             {
                 this.targetSelecter = targetSelecter;
             }
 
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
-                targetSelecter.StartSelect(delegate(List<IActor> targets)
+                targetSelecter.StartSelect(vars, delegate(List<IActor> targets)
                 {
                     processData.targets.AddRange(targets);
                     onCompleted?.Invoke();
