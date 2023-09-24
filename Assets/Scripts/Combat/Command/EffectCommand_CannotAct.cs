@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using KahaGameCore.Combat.Processor.EffectProcessor;
 
-public class EffectCommand_CannotAct : MonoBehaviour
+namespace ProjectBS.Combat.Command
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EffectCommand_CannotAct : EffectCommandBase
     {
-        
-    }
+        public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
+        {
+            for (int i = 0; i < processData.targets.Count; i++)
+            {
+                processData.targets[i].Stats.Add(Const.CannotAct, 1);
+            }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            onCompleted?.Invoke();
+        }
     }
 }
