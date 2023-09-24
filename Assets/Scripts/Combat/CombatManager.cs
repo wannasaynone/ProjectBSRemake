@@ -9,7 +9,6 @@ namespace ProjectBS.Combat
 
         public CombatManager()
         {
-            WaitingActionRateState.OnActionRateFull += ChangeToUnitTurn;
         }
 
         public void StartCombat(List<CombatActor> player, List<CombatActor> enemy)
@@ -17,15 +16,27 @@ namespace ProjectBS.Combat
             this.player = new List<CombatActor>(player);
             this.enemy = new List<CombatActor>(enemy);
 
+            WaitActionRate();
+        }
+
+        private void WaitActionRate()
+        {
             List<CombatActor> allActor = new List<CombatActor>();
             allActor.AddRange(player);
             allActor.AddRange(enemy);
-            new WaitingActionRateState(allActor).Enter();
+
+            new WaitingActionRateState(allActor).Enter(ChangeToUnitTurn);
         }
 
-        private void ChangeToUnitTurn(CombatActor actor)
+        private void ChangeToUnitTurn()
         {
-            new UnitTurnStartState(actor).Enter();
+            List<CombatActor> allActor = new List<CombatActor>();
+            allActor.AddRange(player);
+            allActor.AddRange(enemy);
+
+            allActor.Sort((x, y) => y.actionRate.CompareTo(x.actionRate));
+
+            new UnitTurnStartState(allActor[0]).Enter(null);
         }
     }
 }

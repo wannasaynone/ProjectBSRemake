@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ProjectBS.Combat
 {
     public class UnitTurnStartState : CombatStateBase
@@ -13,7 +11,7 @@ namespace ProjectBS.Combat
             this.actor = actor;
         }
 
-        public override void Enter()
+        public override void Enter(System.Action onEnded)
         {
             OnTurnStarted?.Invoke(actor);
         }

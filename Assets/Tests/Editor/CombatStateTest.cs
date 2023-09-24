@@ -26,17 +26,10 @@ namespace ProjectBS.Test
                 enemy_actor3
             });
 
-            Combat.CombatActor startTurnActor = null;
-            Combat.WaitingActionRateState.OnActionRateFull += delegate (Combat.CombatActor actor)
-            {
-                startTurnActor = actor;
-            };
             waitingActionRateState.Tick(0.25f);
 
             Assert.IsTrue(UnityEngine.Mathf.Approximately(player_actor1.actionRate, 1f));
             Assert.IsTrue(UnityEngine.Mathf.Approximately(player_actor2.actionRate, 0.5f));
-            Assert.IsNotNull(startTurnActor);
-            Assert.AreEqual(player_actor1, startTurnActor);
         }
     }
 }

@@ -4,9 +4,9 @@ namespace ProjectBS.Combat
 {
     public class WaitingActionRateState : CombatStateBase, ITickable
     {
-        public static event System.Action<CombatActor> OnActionRateFull;
-
         private readonly Dictionary<CombatActor, float> actorToActionDelta;
+
+        private System.Action onEnded;
 
         public WaitingActionRateState(List<CombatActor> actors)
         {
@@ -26,8 +26,9 @@ namespace ProjectBS.Combat
             }
         }
 
-        public override void Enter()
+        public override void Enter(System.Action onEnded)
         {
+            this.onEnded = onEnded;
             UnityTicker.Add(this);
         }
 
@@ -44,7 +45,7 @@ namespace ProjectBS.Combat
                 if (kvp.Key.actionRate >= 1f)
                 {
                     UnityTicker.Remove(this);
-                    OnActionRateFull?.Invoke(kvp.Key);
+                    onEnded?.Invoke();
                     break;
                 }
             }
