@@ -31,19 +31,27 @@ namespace ProjectBS
         public static KahaGameCore.GameData.Implemented.GameStaticDataManager GameStaticDataManager { get; private set; }
         public static Combat.CombatManager CombatManager { get; private set; }
         public static EffectCommandFactoryContainer EffectCommandFactoryContainer { get; private set; }
+        public static EffectCommandDeserializer EffectCommandDeserializer { get; private set; }
 
         public static void Initial(Action onLoaded)
         {
             GameStaticDataManager = new KahaGameCore.GameData.Implemented.GameStaticDataManager();
             GameStaticDataManager.Add<Data.SkillData>(new StaticDataLoader("SkillData"));
             GameStaticDataManager.Add<Data.ContextData>(new StaticDataLoader("ContextData"));
+            GameStaticDataManager.Add<Data.CharacterData>(new StaticDataLoader("CharacterData"));
 
             CombatManager = new Combat.CombatManager();
 
             EffectCommandFactoryContainer = new EffectCommandFactoryContainer();
-            EffectCommandFactoryContainer.RegisterFactory("Select", new TestEffectCommandFactory());
-            EffectCommandFactoryContainer.RegisterFactory("Damage", new TestEffectCommandFactory());
-            EffectCommandFactoryContainer.RegisterFactory("PlayAnimation", new TestEffectCommandFactory());
+            EffectCommandFactoryContainer.RegisterFactory("CannotAct", new Combat.Command.EffectCommandFactory_CannotAct());
+            EffectCommandFactoryContainer.RegisterFactory("ResetCannotAct", new Combat.Command.EffectCommandFactory_ResetCannotAct());
+            EffectCommandFactoryContainer.RegisterFactory("SelectSelf", new Combat.Command.EffectCommandFactory_SelectSelf());
+            EffectCommandFactoryContainer.RegisterFactory("RecoverHealth", new Combat.Command.EffectCommandFactory_RecoverHealth());
+            EffectCommandFactoryContainer.RegisterFactory("Select", new Combat.Command.EffectCommandFactory_Select());
+            EffectCommandFactoryContainer.RegisterFactory("Attack", new Combat.Command.EffectCommandFactory_Attack());
+            EffectCommandFactoryContainer.RegisterFactory("PlayAnimation", new Combat.Command.EffectCommandFactory_PlayAnimation());
+
+            EffectCommandDeserializer = new EffectCommandDeserializer(EffectCommandFactoryContainer);
 
             onLoaded?.Invoke();
         }

@@ -14,8 +14,10 @@ namespace ProjectBS.UI
             referenceSkillData = skillData;
 
             if (referenceSkillData != null)
+            {
                 // TODO: change here with Localize
                 skillNameText.text = Main.GameStaticDataManager.GetGameData<Data.ContextData>(referenceSkillData.NameID).zh_tw;
+            }
 
             gameObject.SetActive(referenceSkillData != null);
         }

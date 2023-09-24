@@ -9,6 +9,8 @@ namespace ProjectBS.Data
         public int Attack { get; private set; }
         public int Defense { get; private set; }
         public int Speed { get; private set; }
+        public int Critical { get; private set; }
+        public int CriticalDefense { get; private set; }
         public int Health { get; private set; }
         public int PassiveID { get; private set; }
         public int Skill_1 { get; private set; }

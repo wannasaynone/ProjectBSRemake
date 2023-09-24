@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543dbd8e51e1404081c5428b4f41874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillNameText: {fileID: 0}
+  skillNameText: {fileID: 203306385}
 --- !u!1 &126388616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,7 +4452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543dbd8e51e1404081c5428b4f41874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillNameText: {fileID: 0}
+  skillNameText: {fileID: 304526804}
 --- !u!1 &1604398568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5332,7 +5332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543dbd8e51e1404081c5428b4f41874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillNameText: {fileID: 0}
+  skillNameText: {fileID: 1854591963}
 --- !u!1 &1886103923
 GameObject:
   m_ObjectHideFlags: 0

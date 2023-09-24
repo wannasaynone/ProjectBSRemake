@@ -20,15 +20,12 @@ public class GameStarter : MonoBehaviour
 
     private ProjectBS.Combat.CombatActor Test_CreateActor()
     {
-        return new ProjectBS.Combat.CombatActor(new ProjectBS.Combat.CombatActor.InitialInfo
+        ProjectBS.Data.OwingCharacterData owingCharacterData = new ProjectBS.Data.OwingCharacterData
         {
-            Attack = Random.Range(100, 200),
-            Critical = Random.Range(100, 200),
-            CriticalDefense = Random.Range(100, 200),
-            Defense = Random.Range(100, 200),
-            MaxHealth = Random.Range(100, 200),
-            Skills = new System.Collections.Generic.List<ProjectBS.Data.SkillData> { ProjectBS.Main.GameStaticDataManager.GetGameData<ProjectBS.Data.SkillData>(1) },
-            Speed = Random.Range(100, 200)
-        }, new KahaGameCore.Combat.Processor.EffectProcessor.EffectCommandDeserializer(ProjectBS.Main.EffectCommandFactoryContainer));
+            SourceID = 0,
+            Skill_1 = 1
+        };
+
+        return ProjectBS.Combat.CombatUtility.ConvertCharacterToCombatActor(owingCharacterData);
     }
 }

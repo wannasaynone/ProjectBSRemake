@@ -2,16 +2,16 @@ namespace ProjectBS.Data
 {
     public class OwingCharacterData
     {
-        public string Uid { get; private set; }
-        public int SourceID { get; private set; }
-        public int Rank { get; private set; }
-        public int Progress { get; private set; }
+        public string Uid;
+        public int SourceID;
+        public int Rank;
+        public int Progress;
 
         public class EquipmentStats
         {
             public class AbilityData
             {
-                public string Type;
+                public string Tag;
                 public int Value;
                 public bool Locked;
             }
@@ -22,10 +22,15 @@ namespace ProjectBS.Data
             public AbilityData AbilityData_4;
         }
 
-        public EquipmentStats Weapon { get; private set; }
-        public EquipmentStats Armor { get; private set; }
-        public EquipmentStats Boots { get; private set; }
-        public EquipmentStats Helmet { get; private set; }
-        public EquipmentStats Accessories { get; private set; }
+        public EquipmentStats Weapon;
+        public EquipmentStats Armor;
+        public EquipmentStats Boots;
+        public EquipmentStats Helmet;
+        public EquipmentStats Accessories;
+
+        public int Skill_1 = -1;
+        public int Skill_2 = -1;
+        public int Skill_3 = -1;
+        public int Skill_4 = -1;
     }
 }

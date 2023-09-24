@@ -502,6 +502,9 @@ namespace ProjectBS.Combat
             {
                 for (int i = 0; i < valueInfo.Skills.Count; i++)
                 {
+                    if (valueInfo.Skills[i].ID <= -1)
+                        continue;
+                    
                     skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
                 }
             }

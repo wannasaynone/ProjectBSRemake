@@ -1,8 +1,14 @@
 [
     {
-        "Commands": "OnActived\n{\n      Select(Opponent, 1);\n      Damage(Caster.Attack);\n      PlayAnimation(Attack1);\n}",
+        "Commands": "OnBattleStarted\n{\n     CannotAct();\n}\n\nOnDamageTaken\n{\n      SelectSelf();\n      RecoverHealth(LastTakeDamage);\n}",
         "DescriptionID": 2,
-        "ID": 1,
+        "ID": 0,
         "NameID": 1
+    },
+    {
+        "Commands": "OnActived\n{\n      Select(Opponent, 1);\n      Attack(Caster.Attack);\n      PlayAnimation(Attack1);\n}",
+        "DescriptionID": 4,
+        "ID": 1,
+        "NameID": 3
     }
 ]
