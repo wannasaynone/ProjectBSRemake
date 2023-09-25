@@ -28,6 +28,7 @@ namespace ProjectBS
             }
         }
 
+        public static GameResource.GameResourceManager GameResourceManager { get; private set; }
         public static KahaGameCore.GameData.Implemented.GameStaticDataManager GameStaticDataManager { get; private set; }
         public static Combat.CombatManager CombatManager { get; private set; }
         public static EffectCommandFactoryContainer EffectCommandFactoryContainer { get; private set; }
@@ -35,13 +36,17 @@ namespace ProjectBS
 
         public static void Initial(Action onLoaded)
         {
-            GameStaticDataManager = new KahaGameCore.GameData.Implemented.GameStaticDataManager();
-            GameStaticDataManager.Add<Data.SkillData>(new StaticDataLoader("SkillData"));
-            GameStaticDataManager.Add<Data.ContextData>(new StaticDataLoader("ContextData"));
-            GameStaticDataManager.Add<Data.CharacterData>(new StaticDataLoader("CharacterData"));
-
             CombatManager = new Combat.CombatManager();
+         
+            SetStaticData();
+            SetEffectCommand();
+            GameResourceManager = new GameResource.GameResourceManager();
 
+            onLoaded?.Invoke();
+        }
+
+        private static void SetEffectCommand()
+        {
             EffectCommandFactoryContainer = new EffectCommandFactoryContainer();
             EffectCommandFactoryContainer.RegisterFactory("CannotAct", new Combat.Command.EffectCommandFactory_CannotAct());
             EffectCommandFactoryContainer.RegisterFactory("ResetCannotAct", new Combat.Command.EffectCommandFactory_ResetCannotAct());
@@ -52,24 +57,14 @@ namespace ProjectBS
             EffectCommandFactoryContainer.RegisterFactory("PlayAnimation", new Combat.Command.EffectCommandFactory_PlayAnimation());
 
             EffectCommandDeserializer = new EffectCommandDeserializer(EffectCommandFactoryContainer);
-
-            onLoaded?.Invoke();
         }
 
-        public class TestEffectCommand : EffectCommandBase
+        private static void SetStaticData()
         {
-            public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
-            {
-                UnityEngine.Debug.Log("test command");
-            }
-        }
-
-        public class TestEffectCommandFactory : EffectCommandFactoryBase
-        {
-            public override EffectCommandBase Create()
-            {
-                return new TestEffectCommand();
-            }
+            GameStaticDataManager = new KahaGameCore.GameData.Implemented.GameStaticDataManager();
+            GameStaticDataManager.Add<Data.SkillData>(new StaticDataLoader("SkillData"));
+            GameStaticDataManager.Add<Data.ContextData>(new StaticDataLoader("ContextData"));
+            GameStaticDataManager.Add<Data.CharacterData>(new StaticDataLoader("CharacterData"));
         }
     }
 }

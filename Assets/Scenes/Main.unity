@@ -712,6 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 209944633}
   - component: {fileID: 209944634}
+  - component: {fileID: 209944635}
   m_Layer: 5
   m_Name: EnemyGridSet_1
   m_TagString: Untagged
@@ -766,6 +767,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &209944635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209944632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
 --- !u!1 &219607165
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219607166}
   - component: {fileID: 219607167}
+  - component: {fileID: 219607168}
   m_Layer: 5
   m_Name: PlayerGridSet_3
   m_TagString: Untagged
@@ -832,6 +847,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &219607168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219607165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards:
+  - {fileID: 432425805}
+  - {fileID: 1210806959}
+  - {fileID: 1256252462}
 --- !u!1 &231543043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1306,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 651555870}
+  - {fileID: 1789664902}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1373,6 +1404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305916937}
+  - component: {fileID: 305916938}
   m_Layer: 5
   m_Name: BossGridSet_1
   m_TagString: Untagged
@@ -1401,6 +1433,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 685}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &305916938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305916936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
 --- !u!1 &312940081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 329532853}
   - component: {fileID: 329532854}
+  - component: {fileID: 329532855}
   m_Layer: 5
   m_Name: EnemyGridSet_2
   m_TagString: Untagged
@@ -1542,6 +1588,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &329532855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329532852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
 --- !u!1 &331142918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1753,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409214303}
   m_CullTransparentMesh: 1
+--- !u!114 &432425805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1629755562733824170, guid: a25a0b3d3f3af2249bf6c6edb04ac3e8, type: 3}
+  m_PrefabInstance: {fileID: 143283081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d523a410813cec7419b5cee5eaae454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &453284535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,7 +2265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651555870}
   m_Layer: 5
-  m_Name: CombatRoot
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,7 +2278,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651555869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2222,7 +2292,7 @@ RectTransform:
   - {fileID: 2061601362}
   - {fileID: 305916937}
   - {fileID: 1042990772}
-  m_Father: {fileID: 280869425}
+  m_Father: {fileID: 1789664902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3429,6 +3499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123385110}
+  - component: {fileID: 1123385111}
   m_Layer: 5
   m_Name: BossGridSet_5
   m_TagString: Untagged
@@ -3459,6 +3530,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 685}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1123385111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123385109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
+--- !u!114 &1210806959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1629755562733824170, guid: a25a0b3d3f3af2249bf6c6edb04ac3e8, type: 3}
+  m_PrefabInstance: {fileID: 243806782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d523a410813cec7419b5cee5eaae454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241488229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3802,6 +3897,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2647340301784287659, guid: a25a0b3d3f3af2249bf6c6edb04ac3e8, type: 3}
   m_PrefabInstance: {fileID: 1256252460}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1256252462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1629755562733824170, guid: a25a0b3d3f3af2249bf6c6edb04ac3e8, type: 3}
+  m_PrefabInstance: {fileID: 1256252460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d523a410813cec7419b5cee5eaae454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265070697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,6 +4980,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737393636}
   m_CullTransparentMesh: 1
+--- !u!1 &1789664901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1789664902}
+  - component: {fileID: 1789664903}
+  m_Layer: 5
+  m_Name: CombatUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1789664902
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789664901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 651555870}
+  m_Father: {fileID: 280869425}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1789664903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789664901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bc1aaf806a3d742a03c4ee791bb252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGrid: {fileID: 219607168}
 --- !u!1 &1812399068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1886103924}
   - component: {fileID: 1886103925}
+  - component: {fileID: 1886103926}
   m_Layer: 5
   m_Name: EnemyGridSet_4
   m_TagString: Untagged
@@ -5400,6 +5558,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1886103926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886103923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
 --- !u!1 &1979847163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,6 +5809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061601362}
+  - component: {fileID: 2061601363}
   m_Layer: 5
   m_Name: BossGridSet_3
   m_TagString: Untagged
@@ -5668,6 +5840,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 685}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2061601363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061601361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
 --- !u!1 &2125253619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,6 +5863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2125253620}
   - component: {fileID: 2125253621}
+  - component: {fileID: 2125253622}
   m_Layer: 5
   m_Name: EnemyGridSet_3
   m_TagString: Untagged
@@ -5734,3 +5920,16 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2125253622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125253619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79d7c5b478f6840933b0109b745ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatActorCards: []
