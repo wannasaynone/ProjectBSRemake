@@ -4,13 +4,14 @@ namespace ProjectBS.Combat
 {
     public class CombatManager 
     {
-        public static System.Action OnCombatStarted;
+        private readonly UI.CombatUI combatUI;
 
         private List<CombatActor> player;
         private List<CombatActor> enemy;
 
-        public CombatManager()
+        public CombatManager(UI.CombatUI combatUI)
         {
+            this.combatUI = combatUI;
         }
 
         public void StartCombat(List<CombatActor> player, List<CombatActor> enemy)
@@ -18,7 +19,7 @@ namespace ProjectBS.Combat
             this.player = new List<CombatActor>(player);
             this.enemy = new List<CombatActor>(enemy);
 
-            OnCombatStarted?.Invoke();
+            combatUI.ShowWith(player, enemy);
 
             //WaitActionRate();
         }

@@ -11,10 +11,16 @@ namespace ProjectBS.UI
     {
         [SerializeField] private Image characterImage;
 
-        public void SetUp(CombatActor combatActor)
+        public void ShowWith(CombatActor combatActor)
         {
             AsyncOperationHandle downloadAsync = Addressables.LoadAssetAsync<Sprite>("Test" + Random.Range(1, 6));
             downloadAsync.Completed += DownloadAsync_Completed;
+            transform.parent.gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            transform.parent.gameObject.SetActive(false);
         }
 
         private void DownloadAsync_Completed(AsyncOperationHandle obj)

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GameStarter : MonoBehaviour
 {
+    [SerializeField] private ProjectBS.UI.UIContainer uiContainer;
+
     private void Start()
     {
-        ProjectBS.Main.Initial(Test_StartCombat);
+        ProjectBS.Main.Initial(uiContainer, Test_StartCombat);
     }
 
     private void Test_StartCombat()

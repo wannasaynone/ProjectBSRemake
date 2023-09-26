@@ -34,12 +34,14 @@ namespace ProjectBS
         public static EffectCommandFactoryContainer EffectCommandFactoryContainer { get; private set; }
         public static EffectCommandDeserializer EffectCommandDeserializer { get; private set; }
 
-        public static void Initial(Action onLoaded)
+
+        public static void Initial(UI.UIContainer uiContainer, Action onLoaded)
         {
-            CombatManager = new Combat.CombatManager();
+            CombatManager = new Combat.CombatManager(uiContainer.Get<UI.CombatUI>());
          
             SetStaticData();
             SetEffectCommand();
+
             GameResourceManager = new GameResource.GameResourceManager();
 
             onLoaded?.Invoke();
