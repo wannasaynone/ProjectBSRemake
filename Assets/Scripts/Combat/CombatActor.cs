@@ -68,6 +68,7 @@ namespace ProjectBS.Combat
 
         public class InitialInfo
         {
+            public int sourceID;
             public int MaxHealth;
             public int Attack;
             public int Defense;
@@ -488,6 +489,8 @@ namespace ProjectBS.Combat
             }
         }
 
+        private readonly int sourceID;
+
         public float actionRate;
 
         public KahaGameCore.Combat.IValueContainer Stats { get; private set; }
@@ -495,6 +498,7 @@ namespace ProjectBS.Combat
 
         public CombatActor(InitialInfo valueInfo, EffectCommandDeserializer effectCommandDeserializer)
         {
+            sourceID = valueInfo.sourceID;
             Stats = new ActorStats(valueInfo);
 
             List<SkillInfo> skills = new List<SkillInfo>();
@@ -510,6 +514,11 @@ namespace ProjectBS.Combat
             }
 
             SkillTrigger = new ActorSkillTrigger(this, skills);
+        }
+
+        public Data.CharacterData GetSource()
+        {
+            return Main.GameStaticDataManager.GetGameData<Data.CharacterData>(sourceID);
         }
 
         public void UseSkill(int index, Action onUsed)

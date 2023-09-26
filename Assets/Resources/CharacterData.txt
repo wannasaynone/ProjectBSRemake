@@ -1,15 +1,20 @@
 [
     {
-        "Attack": 2000,
-        "Defense": 2000,
-        "Health": 3000,
+        "Address": "Assets/TestSources/Test1.png",
+        "Attack": 2500,
+        "Critical": 1000,
+        "CriticalDefense": 1000,
+        "Defense": 2500,
+        "Health": 1000,
         "ID": 0,
         "NameID": 10000,
+        "OffsetX": -85,
+        "OffsetY": -360,
         "PassiveID": 0,
         "SkillID_1": 1,
         "SkillID_2": -1,
         "SkillID_3": -1,
         "SkillID_4": -1,
-        "Speed": 3000
+        "Speed": 2000
     }
 ]

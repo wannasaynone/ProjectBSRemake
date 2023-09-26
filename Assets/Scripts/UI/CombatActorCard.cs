@@ -11,11 +11,14 @@ namespace ProjectBS.UI
     {
         [SerializeField] private Image characterImage;
 
+        private Data.CharacterData referenceCharacterData;
+
         public void ShowWith(CombatActor combatActor)
         {
-            AsyncOperationHandle downloadAsync = Addressables.LoadAssetAsync<Sprite>("Test" + Random.Range(1, 6));
+            referenceCharacterData = combatActor.GetSource();
+
+            AsyncOperationHandle downloadAsync = Addressables.LoadAssetAsync<Sprite>(referenceCharacterData.Address);
             downloadAsync.Completed += DownloadAsync_Completed;
-            transform.parent.gameObject.SetActive(true);
         }
 
         public void Hide()
@@ -25,8 +28,10 @@ namespace ProjectBS.UI
 
         private void DownloadAsync_Completed(AsyncOperationHandle obj)
         {
+            transform.parent.gameObject.SetActive(true);
             characterImage.sprite = obj.Result as Sprite;
             characterImage.SetNativeSize();
+            characterImage.transform.localPosition = new Vector3(referenceCharacterData.OffsetX, referenceCharacterData.OffsetY);
         }
     }
 }

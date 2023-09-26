@@ -17,5 +17,8 @@ namespace ProjectBS.Data
         public int Skill_2 { get; private set; }
         public int Skill_3 { get; private set; }
         public int Skill_4 { get; private set; }
+        public string Address { get; private set; }
+        public float OffsetX { get; private set; }
+        public float OffsetY { get; private set; }
     }
 }

@@ -17,28 +17,33 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2dbde8a4e3a55434590c86dfa3f434e4
   m_SerializeEntries:
-  - m_GUID: 18b25bb3b03443e45ba45f9bf2ff36ff
-    m_Address: Test1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-  - m_GUID: 8b0996ac720ac634898f421d25cdeb85
-    m_Address: Test2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-  - m_GUID: 388b90b031752ee41bdd579ac481efcf
-    m_Address: Test3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-  - m_GUID: 8d6b1cc3892bf4f40999b29220a67168
-    m_Address: Test4
+  - m_GUID: 6dc17946a2a1ca04fa6f7b16f53d3d23
+    m_Address: Assets/TestSources/Test6.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character
   - m_GUID: 3b3ce414b9c22374d806e6e4fa89059d
-    m_Address: Test5
+    m_Address: Assets/TestSources/Test5.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+  - m_GUID: 8d6b1cc3892bf4f40999b29220a67168
+    m_Address: Assets/TestSources/Test4.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+  - m_GUID: 388b90b031752ee41bdd579ac481efcf
+    m_Address: Assets/TestSources/Test3.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+  - m_GUID: 8b0996ac720ac634898f421d25cdeb85
+    m_Address: Assets/TestSources/Test2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+  - m_GUID: 18b25bb3b03443e45ba45f9bf2ff36ff
+    m_Address: Assets/TestSources/Test1.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character
