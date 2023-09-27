@@ -7,8 +7,12 @@ namespace ProjectBS.Combat
         public const string Attack = "Attack";
         public const string Defense = "Defense";
         public const string Speed = "Speed";
+        public const string Critical = "Critical";
+        public const string CriticalDefense = "CriticalDefense";
+
         public const string CannotAct = "CannotAct";
 
+        public const string OnActived = "OnActived";
         public const string BeforeAttackStart = "BeforeAttackStart";
         public const string OnAttackStarted = "OnAttackStarted";
         public const string OnDamageCalculated = "OnDamageCalculated";

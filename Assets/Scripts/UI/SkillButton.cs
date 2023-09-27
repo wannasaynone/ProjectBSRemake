@@ -5,7 +5,10 @@ namespace ProjectBS.UI
 {
     public class SkillButton : MonoBehaviour
     {
+        public event System.Action<Data.SkillData> OnPressed;
+
         [SerializeField] private Text skillNameText;
+        [SerializeField] private Button button;
 
         private Data.SkillData referenceSkillData;
 
@@ -19,7 +22,14 @@ namespace ProjectBS.UI
                 skillNameText.text = Main.GameStaticDataManager.GetGameData<Data.ContextData>(referenceSkillData.NameID).zh_tw;
             }
 
+            button.interactable = skillData.Commands.Contains(Combat.Const.OnActived);
+
             gameObject.SetActive(referenceSkillData != null);
+        }
+
+        public void Button_OnPressed()
+        {
+            OnPressed?.Invoke(referenceSkillData);
         }
     }
 }

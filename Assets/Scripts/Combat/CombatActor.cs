@@ -466,7 +466,21 @@ namespace ProjectBS.Combat
                 processor.Start(onEnded, delegate { UnityEngine.Debug.LogError("Trigger shouldn't have Quit"); });
             }
 
-            public void UseSkill(int index, Action onUsed)
+            public void UseSkill(Data.SkillData skillData, Action onUsed)
+            {
+                SkillInfo skillInfo = skills.Find(x => x.referenceSkillData.ID == skillData.ID);
+                if (skillInfo != null)
+                {
+                    skillInfo.Execute(combatActor, Const.OnActived, onUsed);
+                }
+                else
+                {
+                    UnityEngine.Debug.LogError("using skill invaild id=" + skillData.ID);
+                    onUsed?.Invoke();
+                }
+            }
+
+            public void UseSkillByIndex(int index, Action onUsed)
             {
                 if (index < 0 || index >= skills.Count)
                 {
@@ -475,7 +489,7 @@ namespace ProjectBS.Combat
                     return;
                 }
 
-                skills[index].Execute(combatActor, "OnActived", onUsed);
+                skills[index].Execute(combatActor, Const.OnActived, onUsed);
             }
 
             public Data.SkillData GetSkillSource(int index)
@@ -523,7 +537,7 @@ namespace ProjectBS.Combat
 
         public void UseSkill(int index, Action onUsed)
         {
-            ((ActorSkillTrigger)SkillTrigger).UseSkill(index, onUsed);
+            ((ActorSkillTrigger)SkillTrigger).UseSkillByIndex(index, onUsed);
         }
 
         public Data.SkillData GetSkillSource(int index)

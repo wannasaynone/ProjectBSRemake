@@ -5,13 +5,15 @@ namespace ProjectBS.Combat
     public class CombatManager 
     {
         private readonly UI.CombatUI combatUI;
+        private readonly UI.SelectSkillMenu selectSkillMenu;
 
         private List<CombatActor> player;
         private List<CombatActor> enemy;
 
-        public CombatManager(UI.CombatUI combatUI)
+        public CombatManager(UI.CombatUI combatUI, UI.SelectSkillMenu selectSkillMenu)
         {
             this.combatUI = combatUI;
+            this.selectSkillMenu = selectSkillMenu;
         }
 
         public void StartCombat(List<CombatActor> player, List<CombatActor> enemy)
@@ -21,7 +23,7 @@ namespace ProjectBS.Combat
 
             combatUI.ShowWith(player, enemy);
 
-            //WaitActionRate();
+            WaitActionRate();
         }
 
         private void WaitActionRate()
@@ -41,7 +43,7 @@ namespace ProjectBS.Combat
 
             allActor.Sort((x, y) => y.actionRate.CompareTo(x.actionRate));
 
-            new UnitTurnStartState(allActor[0]).Enter(null);
+            new UnitTurnStartState(allActor[0], selectSkillMenu).Enter(null);
         }
     }
 }

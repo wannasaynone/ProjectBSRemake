@@ -37,7 +37,7 @@ namespace ProjectBS
 
         public static void Initial(UI.UIContainer uiContainer, Action onLoaded)
         {
-            CombatManager = new Combat.CombatManager(uiContainer.Get<UI.CombatUI>());
+            CombatManager = new Combat.CombatManager(uiContainer.Get<UI.CombatUI>(), uiContainer.Get<UI.SelectSkillMenu>());
          
             SetStaticData();
             SetEffectCommand();

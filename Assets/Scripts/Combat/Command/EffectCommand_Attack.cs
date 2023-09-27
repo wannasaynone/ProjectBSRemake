@@ -70,6 +70,16 @@ namespace ProjectBS.Combat.Command
                     formula = vars[0],
                     useBaseValue = false
                 });
+
+                float critical = processData.caster.Stats.GetTotal(Const.Critical, false);
+                float criticalDef = processData.targets[i].Stats.GetTotal(Const.CriticalDefense, false);
+
+                float criticalChance = critical / (critical + criticalDef) * 0.3f;
+                if (UnityEngine.Random.Range(0, 1) < criticalChance)
+                {
+                    rawDamage *= 2; // spec: double the damage if crit
+                }
+
                 float defense = processData.targets[i].Stats.GetTotal(Const.Defense, false);
 
                 float finalDamage = (defense / (rawDamage + defense)) * rawDamage;
