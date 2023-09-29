@@ -9,6 +9,8 @@ namespace ProjectBS.Combat
         public const string Speed = "Speed";
         public const string Critical = "Critical";
         public const string CriticalDefense = "CriticalDefense";
+        public const string Effectiveness = "Effectiveness";
+        public const string Resistance = "Resistance";
 
         public const string CannotAct = "CannotAct";
 

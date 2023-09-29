@@ -75,6 +75,8 @@ namespace ProjectBS.Combat
             public int Speed;
             public int Critical;
             public int CriticalDefense;
+            public int Effectiveness;
+            public int Resistance;
             public List<Data.SkillData> Skills;
         }
 
@@ -173,6 +175,8 @@ namespace ProjectBS.Combat
             public int OrginSpeed { get; private set; }
             public int OriginCritical { get; private set; }
             public int OriginCriticalDefense { get; private set; }
+            public int OriginEffectiveness { get; private set; }
+            public int OriginResistance { get; private set; }
 
             public ActorStats(InitialInfo valueInfo)
             {
@@ -183,6 +187,8 @@ namespace ProjectBS.Combat
                 OrginSpeed = valueInfo.Speed;
                 OriginCritical = valueInfo.Critical;
                 OriginCriticalDefense = valueInfo.CriticalDefense;
+                OriginEffectiveness = valueInfo.Effectiveness;
+                OriginResistance = valueInfo.Resistance;
             }
 
             public int GetTotal(string tag, bool baseOnly)
@@ -196,7 +202,7 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginMaxHealth;
                             else
-                                return OriginMaxHealth + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OriginMaxHealth + GetBuffTotal(Const.HP) + GetTempTotal(Const.HP);
                         }
                     case "hp":
                     case "health":
@@ -208,21 +214,21 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OrginAttack;
                             else
-                                return OrginAttack + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OrginAttack + GetBuffTotal(Const.Attack) + GetTempTotal(Const.Attack);
                         }
                     case "defense":
                         {
                             if (baseOnly)
                                 return OrginDefense;
                             else
-                                return OrginDefense + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OrginDefense + GetBuffTotal(Const.Defense) + GetTempTotal(Const.Defense);
                         }
                     case "speed":
                         {
                             if (baseOnly)
                                 return OrginSpeed;
                             else
-                                return OrginSpeed + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OrginSpeed + GetBuffTotal(Const.Speed) + GetTempTotal(Const.Speed);
                         }
                     case "cri":
                     case "critical":
@@ -230,7 +236,7 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginCritical;
                             else
-                                return OriginCritical + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OriginCritical + GetBuffTotal(Const.Critical) + GetTempTotal(Const.Critical);
                         }
                     case "crifdef":
                     case "cridefense":
@@ -239,7 +245,23 @@ namespace ProjectBS.Combat
                             if (baseOnly)
                                 return OriginCriticalDefense;
                             else
-                                return OriginCriticalDefense + GetBuffTotal(tag) + GetTempTotal(tag);
+                                return OriginCriticalDefense + GetBuffTotal(Const.CriticalDefense) + GetTempTotal(Const.CriticalDefense);
+                        }
+                    case "effect":
+                    case "effectiveness":
+                        {
+                            if (baseOnly)
+                                return OriginEffectiveness;
+                            else
+                                return OriginEffectiveness + GetBuffTotal(Const.Effectiveness) + GetTempTotal(Const.Effectiveness);
+                        }
+                    case "resistance":
+                    case "resist":
+                        {
+                            if (baseOnly)
+                                return OriginResistance;
+                            else
+                                return OriginResistance + GetBuffTotal(Const.Resistance) + GetTempTotal(Const.Resistance);
                         }
                     default:
                         UnityEngine.Debug.LogError("invaild stats tag=" + tag);
