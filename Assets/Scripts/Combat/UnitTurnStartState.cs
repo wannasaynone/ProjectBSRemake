@@ -14,7 +14,12 @@ namespace ProjectBS.Combat
 
         private void SelectSkillMenu_OnSkillSelected(Data.SkillData skill)
         {
-            
+            actor.UseSkill(skill, OnSkillUsed);
+        }
+
+        private void OnSkillUsed()
+        {
+
         }
 
         public override void Enter(System.Action onEnded)

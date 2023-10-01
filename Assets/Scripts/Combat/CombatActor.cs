@@ -562,6 +562,11 @@ namespace ProjectBS.Combat
             ((ActorSkillTrigger)SkillTrigger).UseSkillByIndex(index, onUsed);
         }
 
+        public void UseSkill(Data.SkillData skillData, Action onUsed)
+        {
+            ((ActorSkillTrigger)SkillTrigger).UseSkill(skillData, onUsed);
+        }
+
         public Data.SkillData GetSkillSource(int index)
         {
             return ((ActorSkillTrigger)SkillTrigger).GetSkillSource(index);

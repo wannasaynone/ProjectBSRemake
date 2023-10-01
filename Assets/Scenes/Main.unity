@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillNameText: {fileID: 203306385}
-  button: {fileID: 0}
+  button: {fileID: 86603784}
 --- !u!1001 &100306521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6358,7 +6358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1057119448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6574,7 +6574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillNameText: {fileID: 1689059996}
-  button: {fileID: 0}
+  button: {fileID: 1096742863}
 --- !u!1001 &1101165561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8922,7 +8922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillNameText: {fileID: 304526804}
-  button: {fileID: 0}
+  button: {fileID: 1543575258}
 --- !u!1 &1562788962
 GameObject:
   m_ObjectHideFlags: 0
@@ -11006,7 +11006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillNameText: {fileID: 1854591963}
-  button: {fileID: 0}
+  button: {fileID: 1877559279}
 --- !u!1 &1886103923
 GameObject:
   m_ObjectHideFlags: 0
@@ -11634,7 +11634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1975356657
 RectTransform:
   m_ObjectHideFlags: 0

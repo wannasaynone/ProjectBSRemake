@@ -20,8 +20,13 @@ namespace ProjectBS.UI
         {
             for (int i = 0; i < skillButtons.Length; i++)
             {
-                skillButtons[i].OnPressed += OnSkillSelected;
+                skillButtons[i].OnPressed += OnSkillButtonPressed;
             }
+        }
+
+        private void OnSkillButtonPressed(Data.SkillData skillData)
+        {
+            OnSkillSelected?.Invoke(skillData);
         }
 
         public void ShowWith(CombatActor combatActor)

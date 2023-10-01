@@ -20,9 +20,8 @@ namespace ProjectBS.UI
             {
                 // TODO: change here with Localize
                 skillNameText.text = Main.GameStaticDataManager.GetGameData<Data.ContextData>(referenceSkillData.NameID).zh_tw;
+                button.interactable = referenceSkillData.Commands.Contains(Combat.Const.OnActived);
             }
-
-            button.interactable = skillData.Commands.Contains(Combat.Const.OnActived);
 
             gameObject.SetActive(referenceSkillData != null);
         }

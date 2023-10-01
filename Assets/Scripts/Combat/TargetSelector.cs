@@ -22,7 +22,7 @@ namespace ProjectBS.Combat
 
         public void StartSelect(string[] vars, Action<List<IActor>> onSelected)
         {
-            throw new NotImplementedException();
+            UnityEngine.Debug.Log("StartSelect");
         }
     }
 }
