@@ -36,9 +36,16 @@ namespace ProjectBS.Combat.Command
 
     public class EffectCommandFactory_Select : EffectCommandFactoryBase
     {
+        private readonly ITargetSelector targetSelector;
+
+        public EffectCommandFactory_Select(ITargetSelector targetSelector)
+        {
+            this.targetSelector = targetSelector;
+        }
+
         public override EffectCommandBase Create()
         {
-            return new EffectCommand_Select(TargetSelector.Instance);
+            return new EffectCommand_Select(targetSelector);
         }
     }
 

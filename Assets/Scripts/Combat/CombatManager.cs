@@ -7,11 +7,13 @@ namespace ProjectBS.Combat
         private readonly UI.CombatUI combatUI;
         private readonly UI.SelectSkillMenu selectSkillMenu;
 
+        private ITargetSelector targetSelector;
         private List<CombatActor> player;
         private List<CombatActor> enemy;
 
-        public CombatManager(UI.CombatUI combatUI, UI.SelectSkillMenu selectSkillMenu)
+        public CombatManager(ITargetSelector targetSelector, UI.CombatUI combatUI, UI.SelectSkillMenu selectSkillMenu)
         {
+            this.targetSelector = targetSelector;
             this.combatUI = combatUI;
             this.selectSkillMenu = selectSkillMenu;
         }
@@ -20,6 +22,8 @@ namespace ProjectBS.Combat
         {
             this.player = new List<CombatActor>(player);
             this.enemy = new List<CombatActor>(enemy);
+
+            targetSelector.SetSelectPool(this.player, this.enemy);
 
             combatUI.ShowWith(player, enemy);
 

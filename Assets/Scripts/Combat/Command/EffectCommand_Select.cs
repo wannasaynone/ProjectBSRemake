@@ -17,10 +17,10 @@ namespace ProjectBS.Combat.Command
         public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
         {
             this.onCompleted = onCompleted;
-            targetSelector.StartSelect(vars, OnSelected);
+            targetSelector.StartSimpleSelect(processData.caster, vars, OnSelected);
         }
 
-        private void OnSelected(System.Collections.Generic.List<KahaGameCore.Combat.IActor> targets)
+        private void OnSelected(System.Collections.Generic.List<CombatActor> targets)
         {
             processData.targets.AddRange(targets);
             onCompleted?.Invoke();

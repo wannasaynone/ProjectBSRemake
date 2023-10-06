@@ -6,23 +6,25 @@ namespace ProjectBS.Combat
 {
     public class TargetSelector : ITargetSelector
     {
-        public static TargetSelector Instance 
-        {
-            get 
-            {
-                if (instance == null)
-                    instance = new TargetSelector();
+        private UI.SelectTargetMenu selectTargetMenu;
 
-                return instance;
-            }
+        public TargetSelector(UI.SelectTargetMenu selectTargetMenu)
+        {
+            this.selectTargetMenu = selectTargetMenu;
         }
-        private static TargetSelector instance;
 
-        private TargetSelector() { }
-
-        public void StartSelect(string[] vars, Action<List<IActor>> onSelected)
+        public void SetSelectPool(List<CombatActor> player, List<CombatActor> enemy)
         {
-            UnityEngine.Debug.Log("StartSelect");
+
+        }
+
+        public void StartSimpleSelect(IActor actor, string[] vars, Action<List<CombatActor>> onSelected)
+        {
+
+        }
+
+        public void StartRandomSelect(IActor actor, string[] vars, Action<List<CombatActor>> onSelected)
+        {
         }
     }
 }

@@ -3,6 +3,7 @@ using KahaGameCore.Combat.Processor.EffectProcessor;
 using System;
 using System.Collections.Generic;
 using KahaGameCore.Combat;
+using ProjectBS.Combat;
 
 namespace ProjectBS.Test
 {
@@ -31,18 +32,28 @@ namespace ProjectBS.Test
             }
         }
 
-        private class TestTargetSelecter : Combat.ITargetSelector
+        private class TestTargetSelecter : ITargetSelector
         {
-            private Combat.CombatActor actor;
+            private CombatActor preAddTarget;
 
-            public void PreAddFakeTarget(Combat.CombatActor combatActor)
+            public void SetSelectPool(List<CombatActor> player, List<CombatActor> enemy)
             {
-                actor = combatActor;
+                throw new NotImplementedException();
             }
 
-            public void StartSelect(string[] vars, Action<List<IActor>> onSelected)
+            public void StartRandomSelect(IActor actor, string[] vars, Action<List<CombatActor>> onSelected)
             {
-                onSelected?.Invoke(new List<IActor> { actor });
+                throw new NotImplementedException();
+            }
+
+            public void StartSimpleSelect(IActor actor, string[] vars, Action<List<CombatActor>> onSelected)
+            {
+                onSelected?.Invoke(new List<CombatActor> { preAddTarget });
+            }
+
+            public void PreAddFakeTarget(CombatActor target)
+            {
+                preAddTarget = target;
             }
         }
 
@@ -63,16 +74,16 @@ namespace ProjectBS.Test
 
         private class AddTargetCommand : EffectCommandBase
         {
-            private readonly Combat.ITargetSelector targetSelecter;
+            private readonly ITargetSelector targetSelecter;
 
-            public AddTargetCommand(Combat.ITargetSelector targetSelecter)
+            public AddTargetCommand(ITargetSelector targetSelecter)
             {
                 this.targetSelecter = targetSelecter;
             }
 
             public override void Process(string[] vars, Action onCompleted, Action onForceQuit)
             {
-                targetSelecter.StartSelect(vars, delegate(List<IActor> targets)
+                targetSelecter.StartSimpleSelect(processData.caster, vars, delegate(List<CombatActor> targets)
                 {
                     processData.targets.AddRange(targets);
                     onCompleted?.Invoke();
@@ -117,15 +128,15 @@ namespace ProjectBS.Test
 
             EffectCommandDeserializer effectCommandDeserializer = new EffectCommandDeserializer(effectCommandFactoryContainer);
 
-            Combat.CombatActor.InitialInfo statusInfo = new Combat.CombatActor.InitialInfo
+            CombatActor.InitialInfo statusInfo = new CombatActor.InitialInfo
             {
                 Attack = 1,
                 Skills = new List<Data.SkillData> { new Data.SkillData(new Data.SkillData.SkillDataTemplete { Commands = "OnActived { AddTarget(); AddAttack(Attack, 1); }" }) }
             };
 
             int testNumber = 0;
-            Combat.CombatActor caster = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
-            Combat.CombatActor target = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
+            CombatActor caster = new CombatActor(statusInfo, effectCommandDeserializer);
+            CombatActor target = new CombatActor(statusInfo, effectCommandDeserializer);
 
             targetSelecter.PreAddFakeTarget(target);
 

@@ -34,10 +34,13 @@ namespace ProjectBS
         public static EffectCommandFactoryContainer EffectCommandFactoryContainer { get; private set; }
         public static EffectCommandDeserializer EffectCommandDeserializer { get; private set; }
 
+        private static Combat.TargetSelector targetSelector;
 
         public static void Initial(UI.UIContainer uiContainer, Action onLoaded)
         {
-            CombatManager = new Combat.CombatManager(uiContainer.Get<UI.CombatUI>(), uiContainer.Get<UI.SelectSkillMenu>());
+            targetSelector = new Combat.TargetSelector(uiContainer.Get<UI.SelectTargetMenu>());
+
+            CombatManager = new Combat.CombatManager(targetSelector, uiContainer.Get<UI.CombatUI>(), uiContainer.Get<UI.SelectSkillMenu>());
          
             SetStaticData();
             SetEffectCommand();
@@ -54,7 +57,7 @@ namespace ProjectBS
             EffectCommandFactoryContainer.RegisterFactory("ResetCannotAct", new Combat.Command.EffectCommandFactory_ResetCannotAct());
             EffectCommandFactoryContainer.RegisterFactory("SelectSelf", new Combat.Command.EffectCommandFactory_SelectSelf());
             EffectCommandFactoryContainer.RegisterFactory("RecoverHealth", new Combat.Command.EffectCommandFactory_RecoverHealth());
-            EffectCommandFactoryContainer.RegisterFactory("Select", new Combat.Command.EffectCommandFactory_Select());
+            EffectCommandFactoryContainer.RegisterFactory("Select", new Combat.Command.EffectCommandFactory_Select(targetSelector));
             EffectCommandFactoryContainer.RegisterFactory("Attack", new Combat.Command.EffectCommandFactory_Attack());
             EffectCommandFactoryContainer.RegisterFactory("PlayAnimation", new Combat.Command.EffectCommandFactory_PlayAnimation());
 
