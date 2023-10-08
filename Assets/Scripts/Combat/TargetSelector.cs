@@ -26,7 +26,6 @@ namespace ProjectBS.Combat
 
         public void StartSimpleSelect(IActor actor, string[] vars, Action<List<CombatActor>> onSelected)
         {
-            UnityEngine.Debug.Log(vars[0] + " " + vars[1]);
             switch (vars[0])
             {
                 case "Opponent":
@@ -36,18 +35,22 @@ namespace ProjectBS.Combat
                     }
                 case "Ally":
                     {
+                        selectTargetMenu.ShowWithPlayerTeam(CombatUtility.GetUIInfo(gameStaticDataManager, player, false));
                         break;
                     }
                 case "All":
                     {
+                        selectTargetMenu.ShowWith(CombatUtility.GetUIInfo(gameStaticDataManager, player, true), CombatUtility.GetUIInfo(gameStaticDataManager, enemy, false));
                         break;
                     }
                 case "OtherAlly":
                     {
+                        UnityEngine.Debug.Log(vars[0] + " " + vars[1]);
                         break;
                     }
-                case "OtherAll": 
+                case "OtherAll":
                     {
+                        UnityEngine.Debug.Log(vars[0] + " " + vars[1]);
                         break;
                     }
                 default:
