@@ -109,7 +109,7 @@ namespace ProjectBS.Test
 
             int testNumber = 0;
             Combat.CombatActor combatActor = new Combat.CombatActor(statusInfo, effectCommandDeserializer);
-            combatActor.UseSkill(0, delegate { testNumber = 1; });
+            combatActor.UseSkillByIndex(0, delegate { testNumber = 1; });
 
             Assert.AreEqual(1, testNumber);
             Assert.AreEqual(7, combatActor.Stats.GetTotal("Attack", false));
@@ -140,7 +140,7 @@ namespace ProjectBS.Test
 
             targetSelecter.PreAddFakeTarget(target);
 
-            caster.UseSkill(0, delegate { testNumber = 1; });
+            caster.UseSkillByIndex(0, delegate { testNumber = 1; });
 
             Assert.AreEqual(1, testNumber);
             Assert.AreEqual(2, caster.Stats.GetTotal("Attack", false));

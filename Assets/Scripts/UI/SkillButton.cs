@@ -5,30 +5,36 @@ namespace ProjectBS.UI
 {
     public class SkillButton : MonoBehaviour
     {
-        public event System.Action<Data.SkillData> OnPressed;
+        public event System.Action<int> OnPressed;
 
         [SerializeField] private Text skillNameText;
         [SerializeField] private Button button;
 
-        private Data.SkillData referenceSkillData;
+        private int referenceSkillDataID;
 
-        public void SetUp(Data.SkillData skillData)
+        public class SkillButtonInfo
         {
-            referenceSkillData = skillData;
+            public string name;
+            public int id;
+            public bool isActiveSkill;
+        }
 
-            if (referenceSkillData != null)
+        public void SetUp(SkillButtonInfo info)
+        {
+            referenceSkillDataID = info.id;
+
+            if (referenceSkillDataID != -1)
             {
-                // TODO: change here with Localize
-                skillNameText.text = Main.GameStaticDataManager.GetGameData<Data.ContextData>(referenceSkillData.NameID).zh_tw;
-                button.interactable = referenceSkillData.Commands.Contains(Combat.Const.OnActived);
+                skillNameText.text = info.name;
+                button.interactable = info.isActiveSkill;
             }
 
-            gameObject.SetActive(referenceSkillData != null);
+            gameObject.SetActive(referenceSkillDataID != -1);
         }
 
         public void Button_OnPressed()
         {
-            OnPressed?.Invoke(referenceSkillData);
+            OnPressed?.Invoke(referenceSkillDataID);
         }
     }
 }

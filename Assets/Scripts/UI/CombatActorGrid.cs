@@ -8,7 +8,7 @@ namespace ProjectBS.UI
     {
         [SerializeField] private CombatActorCard[] combatActorCards;
 
-        public void ShowWith(List<Combat.CombatActor> combatActors)
+        public void ShowWith(List<CombatUI.CombatActorUIInfo> combatActors, bool isPlayer)
         {
             for (int i = 0; i < combatActorCards.Length; i++)
             {
@@ -26,6 +26,11 @@ namespace ProjectBS.UI
             }
 
             gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
 
         public CombatActorCard GetCard(int index)

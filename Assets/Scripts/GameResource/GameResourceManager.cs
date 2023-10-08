@@ -3,23 +3,15 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace ProjectBS.GameResource
 {
-    public class GameResourceManager 
+    public static class GameResourceManager 
     {
-        public void LoadBundle(string key)
+        public static void LoadAsset<T>(string key, System.Action<T> onLoaded) where T : UnityEngine.Object
         {
-            AsyncOperationHandle downloadAsync = Addressables.DownloadDependenciesAsync(key);
-            downloadAsync.Completed += DownloadAsync_Completed;
-        }
-
-        private void DownloadAsync_Completed(AsyncOperationHandle obj)
-        {
-            UnityEngine.Debug.Log(obj.Result);
-        }
-
-        public void LoadAsset<T>(string key) where T : UnityEngine.Object
-        {
-            AsyncOperationHandle downloadAsync = Addressables.LoadAssetAsync<T>(key);
-            downloadAsync.Completed += DownloadAsync_Completed;
+            AsyncOperationHandle<T> downloadAsync = Addressables.LoadAssetAsync<T>(key);
+            downloadAsync.Completed += delegate (AsyncOperationHandle<T> asyncOperation)
+            {
+                onLoaded?.Invoke(asyncOperation.Result);
+            };
         }
     }
 }

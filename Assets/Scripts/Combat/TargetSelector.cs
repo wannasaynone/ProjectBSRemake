@@ -6,13 +6,15 @@ namespace ProjectBS.Combat
 {
     public class TargetSelector : ITargetSelector
     {
-        private UI.SelectTargetMenu selectTargetMenu;
+        private readonly Data.GameStaticDataManager gameStaticDataManager;
+        private readonly UI.SelectTargetMenu selectTargetMenu;
 
         private List<CombatActor> player;
         private List<CombatActor> enemy;
 
-        public TargetSelector(UI.SelectTargetMenu selectTargetMenu)
+        public TargetSelector(Data.GameStaticDataManager gameStaticDataManager, UI.SelectTargetMenu selectTargetMenu)
         {
+            this.gameStaticDataManager = gameStaticDataManager;
             this.selectTargetMenu = selectTargetMenu;
         }
 
@@ -28,7 +30,8 @@ namespace ProjectBS.Combat
             switch (vars[0])
             {
                 case "Opponent":
-                    { 
+                    {
+                        selectTargetMenu.ShowWithEnemyTeam(CombatUtility.GetUIInfo(gameStaticDataManager, enemy, false));
                         break;
                     }
                 case "Ally":

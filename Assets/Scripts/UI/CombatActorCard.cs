@@ -1,8 +1,5 @@
-using ProjectBS.Combat;
-using ProjectBS.GameResource;
+using System;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 namespace ProjectBS.UI
@@ -10,15 +7,41 @@ namespace ProjectBS.UI
     public class CombatActorCard : MonoBehaviour
     {
         [SerializeField] private Image characterImage;
+        [SerializeField] private Image frameImage;
+        [SerializeField] private Color playerSideColor;
+        [SerializeField] private Color enemySideColor;
+        [Header("Aniamtion Setting")]
+        [SerializeField] private Color highlightStateColor;
+        [SerializeField] private float highlightStateTransTime;
+        [SerializeField] private float highlightStateStayTime;
+        [SerializeField] private float scaleUpStateSize;
+        [SerializeField] private float scaleUpStateTransTime;
+        [SerializeField] private float fadeOutStateTime;
+        [SerializeField] private float resumeStateTime;
 
-        private Data.CharacterData referenceCharacterData;
-
-        public void ShowWith(CombatActor combatActor)
+        private enum AnimationState
         {
-            referenceCharacterData = combatActor.GetSource();
+            None,
+            Highlight,
+            ScaleUp,
+            FadeOut,
+            Resume
+        }
 
-            AsyncOperationHandle downloadAsync = Addressables.LoadAssetAsync<Sprite>(referenceCharacterData.Address);
-            downloadAsync.Completed += DownloadAsync_Completed;
+        private AnimationState curAnimationState;
+
+        public void ShowWith(CombatUI.CombatActorUIInfo info)
+        {
+            transform.parent.gameObject.SetActive(true);
+            frameImage.color = info.isPlayer ? playerSideColor : enemySideColor;
+            characterImage.transform.localPosition = new Vector3(info.offset.x, info.offset.y);
+            GameResource.GameResourceManager.LoadAsset<Sprite>(info.spriteAddress, OnSpriteLoaded);
+        }
+
+        private void OnSpriteLoaded(Sprite sprite)
+        {
+            characterImage.sprite = sprite;
+            characterImage.SetNativeSize();
         }
 
         public void Hide()
@@ -26,12 +49,12 @@ namespace ProjectBS.UI
             transform.parent.gameObject.SetActive(false);
         }
 
-        private void DownloadAsync_Completed(AsyncOperationHandle obj)
+        public void PlayFrameHightlightAnimation()
         {
-            transform.parent.gameObject.SetActive(true);
-            characterImage.sprite = obj.Result as Sprite;
-            characterImage.SetNativeSize();
-            characterImage.transform.localPosition = new Vector3(referenceCharacterData.OffsetX, referenceCharacterData.OffsetY);
+            if (curAnimationState != AnimationState.None)
+                return;
+
+
         }
     }
 }

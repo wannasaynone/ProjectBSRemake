@@ -1,0 +1,19 @@
+{
+    "name": "ProjectBS.Launcher",
+    "rootNamespace": "",
+    "references": [
+        "GUID:53c4b3b218b34d04f916ba628b989c6f",
+        "GUID:437b42c2ac891f341a148822aae2b1a6",
+        "GUID:c4567a5078e8aa64cba8b1ae7157cf31",
+        "GUID:6cbce34fec1346447b1b262f60f846d4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

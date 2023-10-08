@@ -467,6 +467,8 @@ namespace ProjectBS.Combat
 
         public class ActorSkillTrigger : KahaGameCore.Combat.ISkillTrigger
         {
+            public int SkillCount { get { return skills.Count; } }
+
             private readonly CombatActor combatActor;
             private readonly List<SkillInfo> skills;
 
@@ -514,7 +516,21 @@ namespace ProjectBS.Combat
                 skills[index].Execute(combatActor, Const.OnActived, onUsed);
             }
 
-            public Data.SkillData GetSkillSource(int index)
+            public void UseSkillByID(int id, Action onUsed)
+            {
+                for (int i = 0; i < skills.Count; i++)
+                {
+                    if (skills[i].referenceSkillData.ID == id)
+                    {
+                        skills[i].Execute(combatActor, Const.OnActived, onUsed);
+                        return;
+                    }
+                }
+
+                onUsed?.Invoke();
+            }
+
+            public Data.SkillData GetSkillSourceByIndex(int index)
             {
                 if (index < 0 || index >= skills.Count)
                 {
@@ -525,7 +541,7 @@ namespace ProjectBS.Combat
             }
         }
 
-        private readonly int sourceID;
+        public readonly int sourceID;
 
         public float actionRate;
 
@@ -552,14 +568,14 @@ namespace ProjectBS.Combat
             SkillTrigger = new ActorSkillTrigger(this, skills);
         }
 
-        public Data.CharacterData GetSource()
-        {
-            return Main.GameStaticDataManager.GetGameData<Data.CharacterData>(sourceID);
-        }
-
-        public void UseSkill(int index, Action onUsed)
+        public void UseSkillByIndex(int index, Action onUsed)
         {
             ((ActorSkillTrigger)SkillTrigger).UseSkillByIndex(index, onUsed);
+        }
+
+        public void UseSkillByID(int id, Action onUsed)
+        {
+            ((ActorSkillTrigger)SkillTrigger).UseSkillByID(id, onUsed);
         }
 
         public void UseSkill(Data.SkillData skillData, Action onUsed)
@@ -567,9 +583,14 @@ namespace ProjectBS.Combat
             ((ActorSkillTrigger)SkillTrigger).UseSkill(skillData, onUsed);
         }
 
-        public Data.SkillData GetSkillSource(int index)
+        public Data.SkillData GetSkillSourceByIndex(int index)
         {
-            return ((ActorSkillTrigger)SkillTrigger).GetSkillSource(index);
+            return ((ActorSkillTrigger)SkillTrigger).GetSkillSourceByIndex(index);
+        }
+
+        public int GetSkillCount()
+        {
+            return ((ActorSkillTrigger)SkillTrigger).SkillCount;
         }
     }
 }

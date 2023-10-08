@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectBS.UI
+namespace ProjectBS
 {
     public class UIContainer : MonoBehaviour
     {
