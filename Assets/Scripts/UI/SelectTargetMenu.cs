@@ -27,6 +27,8 @@ namespace ProjectBS.UI
             bossGrid_5.Hide();
 
             playerGrid.ShowWith(players, true);
+            playerGrid.PlayAllFrameAnimation();
+
             root.SetActive(true);
         }
 
@@ -44,10 +46,10 @@ namespace ProjectBS.UI
 
             switch (enemies.Count)
             {
-                case 1: enemyGrid_1.ShowWith(enemies, false); break;
-                case 2: enemyGrid_2.ShowWith(enemies, false); break;
-                case 3: enemyGrid_3.ShowWith(enemies, false); break;
-                case 4: enemyGrid_4.ShowWith(enemies, false); break;
+                case 1: enemyGrid_1.ShowWith(enemies, false); enemyGrid_1.PlayAllFrameAnimation(); break;
+                case 2: enemyGrid_2.ShowWith(enemies, false); enemyGrid_2.PlayAllFrameAnimation(); break;
+                case 3: enemyGrid_3.ShowWith(enemies, false); enemyGrid_3.PlayAllFrameAnimation(); break;
+                case 4: enemyGrid_4.ShowWith(enemies, false); enemyGrid_4.PlayAllFrameAnimation(); break;
             }
             root.SetActive(true);
         }
@@ -65,13 +67,14 @@ namespace ProjectBS.UI
             bossGrid_5.Hide();
 
             playerGrid.ShowWith(player, true);
+            playerGrid.PlayAllFrameAnimation();
 
             switch (enemy.Count)
             {
-                case 1: enemyGrid_1.ShowWith(enemy, false); break;
-                case 2: enemyGrid_2.ShowWith(enemy, false); break;
-                case 3: enemyGrid_3.ShowWith(enemy, false); break;
-                case 4: enemyGrid_4.ShowWith(enemy, false); break;
+                case 1: enemyGrid_1.ShowWith(enemy, false); enemyGrid_1.PlayAllFrameAnimation(); break;
+                case 2: enemyGrid_2.ShowWith(enemy, false); enemyGrid_2.PlayAllFrameAnimation(); break;
+                case 3: enemyGrid_3.ShowWith(enemy, false); enemyGrid_3.PlayAllFrameAnimation(); break;
+                case 4: enemyGrid_4.ShowWith(enemy, false); enemyGrid_4.PlayAllFrameAnimation(); break;
             }
 
             root.SetActive(true);

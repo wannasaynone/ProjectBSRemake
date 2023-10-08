@@ -3,13 +3,16 @@
     "rootNamespace": "",
     "references": [
         "GUID:6cbce34fec1346447b1b262f60f846d4",
-        "GUID:ee67c2de7a9a3bb468d3a70ec5ec2ad4"
+        "GUID:ee67c2de7a9a3bb468d3a70ec5ec2ad4",
+        "GUID:f91d9863fa14b6b47b7e8ece2df6efc7"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],

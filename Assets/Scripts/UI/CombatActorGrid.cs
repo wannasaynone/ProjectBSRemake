@@ -28,6 +28,14 @@ namespace ProjectBS.UI
             gameObject.SetActive(true);
         }
 
+        public void PlayAllFrameAnimation()
+        {
+            for (int i = 0; i < combatActorCards.Length; i++)
+            {
+                combatActorCards[i].PlayFrameHightlightAnimation();
+            }
+        }
+
         public void Hide()
         {
             gameObject.SetActive(false);

@@ -748,3 +748,10 @@ MonoBehaviour:
   frameImage: {fileID: 4482181938181678381}
   playerSideColor: {r: 0.4360982, g: 0.7589218, b: 0.990566, a: 1}
   enemySideColor: {r: 1, g: 0.45911944, b: 0.45911944, a: 1}
+  highlightStateColor_player: {r: 0, g: 0.58500004, b: 1, a: 1}
+  highlightStateColor_enemy: {r: 1, g: 0, b: 0, a: 1}
+  highlightStateTransTime: 0.2
+  stayHighlightStateTime: 0.01
+  scaleUpStateSize: 1.05
+  resumeStateTime: 0.2
+  stayResumeStateTime: 0.01
