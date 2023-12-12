@@ -23,7 +23,7 @@ namespace ProjectBS.Combat
 
         private void OnSkillUsed()
         {
-
+            selectSkillMenu.Hide();
         }
 
         public override void Enter(System.Action onEnded)

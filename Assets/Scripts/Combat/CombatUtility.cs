@@ -3,7 +3,7 @@ using KahaGameCore.Combat.Processor.EffectProcessor;
 
 namespace ProjectBS.Combat
 {
-    public static class CombatUtility 
+    public static class CombatUtility
     {
         public static List<UI.CombatUI.CombatActorUIInfo> GetUIInfo(Data.GameStaticDataManager gameStaticDataManager, List<CombatActor> combatActors, bool isPlayer)
         {
@@ -24,7 +24,12 @@ namespace ProjectBS.Combat
                 spriteAddress = characterData.Address,
                 isPlayer = isPlayer,
                 offset = new UnityEngine.Vector3(characterData.OffsetX, characterData.OffsetY),
-                skills = new List<UI.SkillButton.SkillButtonInfo>()
+                skills = new List<UI.SkillButton.SkillButtonInfo>(),
+                referenceCombatActorHashcode = combatActor.GetHashCode(),
+                attack = combatActor.Stats.GetTotal(Const.Attack, false),
+                defense = combatActor.Stats.GetTotal(Const.Defense, false),
+                hp = combatActor.Stats.GetTotal(Const.HP, false),
+                sp = combatActor.Stats.GetTotal(Const.SP, false)
             };
 
             int skillCount = combatActor.GetSkillCount();
@@ -90,7 +95,7 @@ namespace ProjectBS.Combat
             if (abilityData == null)
                 return;
 
-            switch(abilityData.Tag)
+            switch (abilityData.Tag)
             {
                 case "Attack": initialInfo.Attack += abilityData.Value; break;
                 case "Defense": initialInfo.Defense += abilityData.Value; break;

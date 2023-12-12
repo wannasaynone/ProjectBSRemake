@@ -2,6 +2,7 @@
 Library/
 Temp/
 obj/
+Logs/
 
 
 # unity ignore file
@@ -30,3 +31,4 @@ Assets/StreamingAssets/build_info.txt.meta
 TPS_cache/
 /.vs
 /PCBuild/Test
+/UserSettings/Layouts/default-2021.dwlt

@@ -15,6 +15,11 @@ namespace ProjectBS.UI
         [SerializeField] private CombatActorGrid bossGrid_3;
         [SerializeField] private CombatActorGrid bossGrid_5;
 
+        public void Hide()
+        {
+            root.SetActive(false);
+        }
+
         public void ShowWithPlayerTeam(List<CombatUI.CombatActorUIInfo> players)
         {
             enemyGrid_1.Hide();
@@ -26,7 +31,7 @@ namespace ProjectBS.UI
             bossGrid_3.Hide();
             bossGrid_5.Hide();
 
-            playerGrid.ShowWith(players, true);
+            playerGrid.ShowWith(players);
             playerGrid.PlayAllFrameAnimation();
 
             root.SetActive(true);
@@ -46,10 +51,10 @@ namespace ProjectBS.UI
 
             switch (enemies.Count)
             {
-                case 1: enemyGrid_1.ShowWith(enemies, false); enemyGrid_1.PlayAllFrameAnimation(); break;
-                case 2: enemyGrid_2.ShowWith(enemies, false); enemyGrid_2.PlayAllFrameAnimation(); break;
-                case 3: enemyGrid_3.ShowWith(enemies, false); enemyGrid_3.PlayAllFrameAnimation(); break;
-                case 4: enemyGrid_4.ShowWith(enemies, false); enemyGrid_4.PlayAllFrameAnimation(); break;
+                case 1: enemyGrid_1.ShowWith(enemies); enemyGrid_1.PlayAllFrameAnimation(); break;
+                case 2: enemyGrid_2.ShowWith(enemies); enemyGrid_2.PlayAllFrameAnimation(); break;
+                case 3: enemyGrid_3.ShowWith(enemies); enemyGrid_3.PlayAllFrameAnimation(); break;
+                case 4: enemyGrid_4.ShowWith(enemies); enemyGrid_4.PlayAllFrameAnimation(); break;
             }
             root.SetActive(true);
         }
@@ -66,15 +71,15 @@ namespace ProjectBS.UI
             bossGrid_3.Hide();
             bossGrid_5.Hide();
 
-            playerGrid.ShowWith(player, true);
+            playerGrid.ShowWith(player);
             playerGrid.PlayAllFrameAnimation();
 
             switch (enemy.Count)
             {
-                case 1: enemyGrid_1.ShowWith(enemy, false); enemyGrid_1.PlayAllFrameAnimation(); break;
-                case 2: enemyGrid_2.ShowWith(enemy, false); enemyGrid_2.PlayAllFrameAnimation(); break;
-                case 3: enemyGrid_3.ShowWith(enemy, false); enemyGrid_3.PlayAllFrameAnimation(); break;
-                case 4: enemyGrid_4.ShowWith(enemy, false); enemyGrid_4.PlayAllFrameAnimation(); break;
+                case 1: enemyGrid_1.ShowWith(enemy); enemyGrid_1.PlayAllFrameAnimation(); break;
+                case 2: enemyGrid_2.ShowWith(enemy); enemyGrid_2.PlayAllFrameAnimation(); break;
+                case 3: enemyGrid_3.ShowWith(enemy); enemyGrid_3.PlayAllFrameAnimation(); break;
+                case 4: enemyGrid_4.ShowWith(enemy); enemyGrid_4.PlayAllFrameAnimation(); break;
             }
 
             root.SetActive(true);

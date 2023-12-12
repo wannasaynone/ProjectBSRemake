@@ -21,6 +21,11 @@ namespace ProjectBS.UI
             public bool isPlayer;
             public Vector3 offset;
             public List<SkillButton.SkillButtonInfo> skills;
+            public int referenceCombatActorHashcode;
+            public int attack;
+            public int defense;
+            public int hp;
+            public int sp;
         }
 
         public void ShowWith(List<CombatActorUIInfo> player, List<CombatActorUIInfo> enemy)
@@ -33,14 +38,14 @@ namespace ProjectBS.UI
             bossGrid_3.Hide();
             bossGrid_5.Hide();
 
-            playerGrid.ShowWith(player, true);
+            playerGrid.ShowWith(player);
 
-            switch(enemy.Count)
+            switch (enemy.Count)
             {
-                case 1: enemyGrid_1.ShowWith(enemy, false); break;
-                case 2: enemyGrid_2.ShowWith(enemy, false); break;
-                case 3: enemyGrid_3.ShowWith(enemy, false); break;
-                case 4: enemyGrid_4.ShowWith(enemy, false); break;
+                case 1: enemyGrid_1.ShowWith(enemy); break;
+                case 2: enemyGrid_2.ShowWith(enemy); break;
+                case 3: enemyGrid_3.ShowWith(enemy); break;
+                case 4: enemyGrid_4.ShowWith(enemy); break;
             }
 
             root.SetActive(true);

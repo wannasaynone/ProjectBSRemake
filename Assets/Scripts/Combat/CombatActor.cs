@@ -264,8 +264,7 @@ namespace ProjectBS.Combat
                                 return OriginResistance + GetBuffTotal(Const.Resistance) + GetTempTotal(Const.Resistance);
                         }
                     default:
-                        UnityEngine.Debug.LogError("invaild stats tag=" + tag);
-                        return 0;
+                        return GetTempTotal(tag);
                 }
             }
 
@@ -560,7 +559,7 @@ namespace ProjectBS.Combat
                 {
                     if (valueInfo.Skills[i].ID <= -1)
                         continue;
-                    
+
                     skills.Add(new SkillInfo(valueInfo.Skills[i], effectCommandDeserializer));
                 }
             }
@@ -571,16 +570,6 @@ namespace ProjectBS.Combat
         public void UseSkillByIndex(int index, Action onUsed)
         {
             ((ActorSkillTrigger)SkillTrigger).UseSkillByIndex(index, onUsed);
-        }
-
-        public void UseSkillByID(int id, Action onUsed)
-        {
-            ((ActorSkillTrigger)SkillTrigger).UseSkillByID(id, onUsed);
-        }
-
-        public void UseSkill(Data.SkillData skillData, Action onUsed)
-        {
-            ((ActorSkillTrigger)SkillTrigger).UseSkill(skillData, onUsed);
         }
 
         public Data.SkillData GetSkillSourceByIndex(int index)

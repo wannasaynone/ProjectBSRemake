@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace ProjectBS.UI
     {
         [SerializeField] private CombatActorCard[] combatActorCards;
 
-        public void ShowWith(List<CombatUI.CombatActorUIInfo> combatActors, bool isPlayer)
+        public void ShowWith(List<CombatUI.CombatActorUIInfo> combatActors)
         {
             for (int i = 0; i < combatActorCards.Length; i++)
             {

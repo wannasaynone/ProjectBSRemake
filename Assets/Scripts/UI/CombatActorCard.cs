@@ -6,10 +6,16 @@ namespace ProjectBS.UI
 {
     public class CombatActorCard : MonoBehaviour
     {
+        public static event System.Action<int> OnCardClicked;
+
         [SerializeField] private Image characterImage;
         [SerializeField] private Image frameImage;
         [SerializeField] private Color playerSideColor;
         [SerializeField] private Color enemySideColor;
+        [SerializeField] private Text hpText;
+        [SerializeField] private Text spText;
+        [SerializeField] private Text attackText;
+        [SerializeField] private Text defenseText;
         [Header("Aniamtion Setting")]
         [SerializeField] private Color highlightStateColor_player;
         [SerializeField] private Color highlightStateColor_enemy;
@@ -32,12 +38,19 @@ namespace ProjectBS.UI
 
         private AnimationState curAnimationState;
 
+        private int referenceCombatActorHashcode;
+
         public void ShowWith(CombatUI.CombatActorUIInfo info)
         {
             isPlayer = info.isPlayer;
             transform.parent.gameObject.SetActive(true);
             frameImage.color = info.isPlayer ? playerSideColor : enemySideColor;
             characterImage.transform.localPosition = new Vector3(info.offset.x, info.offset.y);
+            referenceCombatActorHashcode = info.referenceCombatActorHashcode;
+            attackText.text = info.attack.ToString();
+            defenseText.text = info.defense.ToString();
+            hpText.text = info.hp.ToString();
+            spText.text = info.sp.ToString();
             GameResource.GameResourceManager.LoadAsset<Sprite>(info.spriteAddress, OnSpriteLoaded);
         }
 
@@ -119,6 +132,11 @@ namespace ProjectBS.UI
         private float GetAlpha()
         {
             return frameImage.color.a;
+        }
+
+        public void Button_OnPressed()
+        {
+            OnCardClicked?.Invoke(referenceCombatActorHashcode);
         }
     }
 }
